@@ -1,0 +1,190 @@
+@charset "utf-8";
+
+* {
+	/*通配符*/
+	margin: 0px;
+	padding: 0px;
+	/*内边距*/
+}
+
+body {
+	background: url(images/背景图.jpg);
+	/*背景图*/
+	background-position: center 0;
+	/*背景自适应，随浏览器窗口尺寸自动剪裁*/
+	background-attachment: fixed;
+	/*禁止背景与浏览器滚动，固定背景位置*/
+	background-size: cover;
+	/*背景图自动填充*/
+	background-repeat: no-repeat;
+	/*禁止图片重复*/
+}
+
+.dahezi {
+	/*大盒子*/
+	width: 1000px;
+	height: 900px;
+	position: relative;
+	margin: 0 auto;
+	background-color: rgba(39, 39, 39, 0.50);
+	border-radius: 0 0 30px 30px;
+	box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+}
+
+.dabiaoti {
+	/*大标题*/
+	width: 500px;
+	font-size: 90px;
+	color: white;
+	position: absolute;
+	top: 0px;
+	left: 325px;
+	text-shadow: black 0px 10px 15px;
+}
+
+.xiaohezi {
+	/*小盒子*/
+	width: 700px;
+	height: 450px;
+	background-color: rgba(39, 39, 39, 0.50);
+	background-size: cover;
+	position: absolute;
+	top: 250px;
+	left: 150px;
+	border-radius: 30px;
+	box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+}
+
+.dengluhezi {
+	/*登录盒子*/
+	position: absolute;
+	top: 150px;
+	left: 200px;
+	text-shadow: rgb(51, 51, 51) 1px 1px 1px;
+}
+
+.QQ {
+	/*QQ盒子*/
+	width: 1000px;
+	height: 50px;
+	font-size: 30px;
+	color: white;
+	position: absolute;
+	top: -5px;
+	left: 0px;
+	text-shadow: rgb(51, 51, 51) 1px 1px 1px;
+}
+
+.mima {
+	/*密码盒子*/
+	width: 1000px;
+	height: 50px;
+	font-size: 30px;
+	color: white;
+	position: absolute;
+	top: 40px;
+	left: 0px;
+	text-shadow: rgb(51, 51, 51) 1px 1px 1px;
+}
+
+.kuang {
+	/*QQ文本框*/
+	width: 200px;
+	height: 30px;
+	color: black;
+	font-size: 20px;
+	border-radius: 5px;
+	border: none;
+	background-color: white;
+}
+
+.kuang1 {
+	/*密码文本框*/
+	width: 200px;
+	height: 30px;
+	color: black;
+	background-color: white;
+	border: none;
+	font-size: 20px;
+	border-radius: 5px
+}
+
+.denglu-chongzhi {
+	/*登录、重置盒子*/
+	width: 1px;
+	position: absolute;
+	top: 100px;
+	left: -50px;
+}
+
+.denglu {
+	/*登录盒子*/
+	width: 400px;
+	height: 50px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.50);
+	border: none;
+	position: absolute;
+	top: 10px;
+	left: 0px;
+	font-size: 30px;
+	text-shadow: rgb(51, 51, 51) 1px 1px 1px;
+}
+
+.denglu:hover {
+	/*返回*/
+	background-color: rgba(106, 106, 106, 0.80);
+}
+
+.denglu:active {
+	/*返回*/
+	background-color: rgba(106, 106, 106, 0.30);
+}
+
+.chongzhi {
+	/*重新输入盒子*/
+	width: 400px;
+	height: 50px;
+	color: white;
+	font-size: 30px;
+	position: absolute;
+	top: 70px;
+	left: 0px;
+	border: none;
+	background-color: rgba(0, 0, 0, 0.50);
+	text-shadow: rgb(51, 51, 51) 1px 1px 1px;
+}
+
+.chongzhi:hover {
+	/*返回*/
+	background-color: rgba(106, 106, 106, 0.80);
+}
+
+.chongzhi:active {
+	/*返回*/
+	background-color: rgba(106, 106, 106, 0.30);
+}
+
+.touxiang {
+	/*头像盒子*/
+	width: 150px;
+	height: 150px;
+	background: url(images/头像.png);
+	background-repeat: no-repeat;
+	background-size: 150px;
+	position: absolute;
+	top: -80px;
+	left: 275px;
+	border-radius: 100px;
+	box-shadow: rgb(0, 0, 0) 0px 5px 10px;
+}
+
+.xiaobiaoti {
+	/*小标题*/
+	width: 200px;
+	font-size: 50px;
+	color: white;
+	position: absolute;
+	top: 70px;
+	left: 280px;
+}

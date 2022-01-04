@@ -1,0 +1,257 @@
+@charset "utf-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background: url("images/背景.jpg");
+	background-position: center 0;
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.father {
+	width: 1500px;
+	height: 990px;
+	background-color: rgba(50, 50, 50, 0.50);
+	position: relative;
+	margin: 0 auto;
+	box-shadow: 0px 3px 15px black;
+}
+
+.daohang {
+	width: 1250px;
+	height: 100px;
+	background-color: rgba(50, 50, 50, 0.50);
+	position: absolute;
+	top: 0px;
+	left: 125px;
+	box-shadow: 0px 1px 10px black;
+}
+
+.daohang h1 {
+	color: white;
+	font-size: 45px;
+	letter-spacing: 50px;
+	position: absolute;
+	top: 15px;
+	left: 180px;
+	text-shadow: 0px 3px 5px black;
+}
+
+/*************************点击门**************************/
+
+.photo {
+	width: 1400px;
+	height: 788px;
+	position: absolute;
+	top: 150px;
+	right: 50px;
+	background-color: black;
+	box-shadow: 0px 1px 10px black;
+}
+
+.tishi h1 {
+	color: aliceblue;
+	position: absolute;
+	top: -50px;
+	left: 455px;
+	letter-spacing: 20px;
+	text-shadow: 0px 3px 5px black;
+}
+
+.image {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 800px;
+	height: 500px;
+	transform: translateY(500px);
+	/**图片缩放动画**/
+	opacity: 0;
+	/**图片缩放逐渐透明**/
+	transition: all 0.5s;
+	/**图片缩放时间**/
+	z-index: -1;
+}
+
+.image img {
+	width: 1400px;
+	height: 788px;
+}
+
+.photo input {
+	/*去掉多余的按钮*/
+	display: none;
+}
+
+.photo input:checked+.image {
+	opacity: 1;
+	/**图片放大逐渐不透明**/
+	transform: translateX(0px);
+	/**图片放大动画**/
+	transition: all 0.5s;
+	/**图片放大动画**/
+	z-index: 2;
+}
+
+/****************控制点盒子****************/
+
+.dots {
+	width: 1400px;
+	height: 100px;
+	position: absolute;
+	left: 0px;
+	bottom: -50px;
+	text-align: center;
+	box-shadow: 0px 1px 10px black;
+	z-index: 2;
+}
+
+.dots h1 {
+	color: aliceblue;
+	text-shadow: 0px 3px 5px black;
+}
+
+/****************控制点****************/
+
+.a {
+	width: 233.3px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: rgba(0, 0, 0, 0.50);
+	border-right: 2px solid white;
+}
+
+.b {
+	width: 233.3px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 233.3px;
+	background-color: rgba(0, 0, 0, 0.50);
+	border-right: 2px solid white;
+}
+
+.c {
+	width: 233.3px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 466.6px;
+	background-color: rgba(0, 0, 0, 0.50);
+	border-right: 2px solid white;
+}
+
+.d {
+	width: 233.3px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 699.9px;
+	background-color: rgba(0, 0, 0, 0.50);
+	border-right: 2px solid white;
+}
+
+.e {
+	width: 233.3px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 933.2px;
+	background-color: rgba(0, 0, 0, 0.50);
+	border-right: 2px solid white;
+}
+
+.f {
+	width: 234px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 1166.5px;
+	background-color: rgba(0, 0, 0, 0.50);
+}
+
+.g {
+	width: 1400px;
+	height: 50px;
+	position: absolute;
+	top: 50px;
+	left: 0px;
+	background-color: rgba(0, 0, 0, 0.50);
+}
+
+.a:hover {
+	background-color: rgba(106, 106, 106, 0.80);
+	cursor: pointer;
+}
+
+.b:hover {
+	background-color: rgba(106, 106, 106, 0.80);
+	cursor: pointer;
+}
+
+.c:hover {
+	background-color: rgba(106, 106, 106, 0.80);
+	cursor: pointer;
+}
+
+.d:hover {
+	background-color: rgba(106, 106, 106, 0.80);
+	cursor: pointer;
+}
+
+.e:hover {
+	background-color: rgba(106, 106, 106, 0.80);
+	cursor: pointer;
+}
+
+.f:hover {
+	background-color: rgba(106, 106, 106, 0.80);
+	cursor: pointer;
+}
+
+.g:hover {
+	background-color: rgba(106, 106, 106, 0.80);
+	cursor: pointer;
+}
+
+.a:active {
+	background-color: rgba(106, 106, 106, 0.30);
+	cursor: pointer;
+}
+
+.b:active {
+	background-color: rgba(106, 106, 106, 0.30);
+	cursor: pointer;
+}
+
+.c:active {
+	background-color: rgba(106, 106, 106, 0.30);
+	cursor: pointer;
+}
+
+.d:active {
+	background-color: rgba(106, 106, 106, 0.30);
+	cursor: pointer;
+}
+
+.e:active {
+	background-color: rgba(106, 106, 106, 0.30);
+	cursor: pointer;
+}
+
+.f:active {
+	background-color: rgba(106, 106, 106, 0.30);
+	cursor: pointer;
+}
+
+.g:active {
+	background-color: rgba(106, 106, 106, 0.30);
+	cursor: pointer;
+}

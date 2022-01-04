@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>贪吃蛇</title>
+    <style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		body {
+			overflow: hidden;
+			font-weight: bold;
+			font-family: "方正兰亭超细黑简体";
+		}
+		.father {
+			position: relative;
+			width: 100%;
+			height: 100vh;
+			left: 1550px;
+			background: linear-gradient(-45deg, #EA2027, #EA2027, #F79F1F, #C4E538, #009432, #12CBC4, #0652DD, #D980FA, #9980FA, #ED4C67);
+			background-size: 2000% 2000%;
+			animation: bg 20s linear infinite;
+			transform: rotate(0deg) skew(0deg) scale(.5);
+			transition: 0.5s;
+			opacity: 0;
+		}
+		@keyframes bg{
+			0%{
+				background-position: 0% 50%;
+			}
+			50%{
+				background-position: 100% 50%;
+			}
+			100%{
+				background-position: 0% 50%;
+			}
+		}
+        .main {
+			position: relative;
+            width: 502px;
+			height: 550px;
+			top: 100px;
+            margin: 0 auto;
+        }
+		.main span {
+			position: absolute;
+			margin: 0 auto;
+			color: white;
+			font-size: 40px;
+		}
+        .btn {
+			position: absolute;
+            width: 300px;
+            height: 200px;
+			left: 50%;
+			top: 50%;
+			margin-left: -150px;
+			margin-top: -100px;
+			font-weight: bold;
+			font-family: "方正兰亭超细黑简体";
+			font-size: 50px;
+			color: white;
+			background-color: transparent;
+			border: 2px dashed white;
+			z-index: 1;
+        }
+        .map {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+			bottom: 0px;
+			border: 2px dashed white;
+        }
+		.black {
+			position: fixed;
+			width: 200px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			font-size: 30px;
+			border: 2px solid black;
+			animation: glow 8s linear infinite;
+			cursor: pointer;
+			transition: 0.5s;
+			top: 0;
+			left: 0;
+			z-index: 1;
+		}
+
+		@keyframes glow {
+			0%{
+				background-position: 0%;
+			}
+			100%{
+				background-position: 400%;
+			}
+		}
+		.back {
+			position: fixed;
+			width: 200px;
+			height: 50px;
+			border: 2px solid white;
+			bottom: 0;
+			right: 0;
+			color: white;
+			text-align: center;
+			line-height: 50px;
+			font-size: 30px;
+			cursor: pointer;
+			font-weight: bold;
+			font-family: "方正兰亭超细黑简体";
+			transition: 0.5s;
+		}
+		.back:hover {
+			background-color: white;
+			color: black;
+		}
+		.play {
+			position: absolute;
+			width: 100%;
+			color: white;
+			bottom: -25px;
+			font-size: 20px;
+			text-align: center;
+			
+		}
+    </style>
+</head>
+<body>
+	<div class="father">
+		<div class="black">酷黑模式</div>
+		<div class="back">主页入口</div>
+		<div class="main">
+			<span></span>
+			<div class="play">
+				↑:上&nbsp;&nbsp;&nbsp;
+				↓:下&nbsp;&nbsp;&nbsp;
+				←:左&nbsp;&nbsp;&nbsp;
+				→:右&nbsp;&nbsp;&nbsp;
+				空格：暂停/继续
+			</div>
+			<div class="map" id="map">
+				<button class="btn" id="begin">开始游戏</button>
+			</div>
+		</div>
+	</div>
+</body>
+    <script>
+        var map = document.getElementById('map');
+        var span = document.querySelector('span');
+		var father = document.querySelector('.father');
+		var black = document.querySelector('.black')
+		var back = document.querySelector('.back');
+		setTimeout(
+			function() {
+			father.style.opacity = '1';
+			father.style.left = '0px';
+		},0);
+		setTimeout(
+			function() {
+			father.style.opacity = '1';
+			father.style.transform = 'rotate(0deg) skew(0deg) scale(1)';
+		},250);
+        function Snake() {
+            this.width = 10;
+            this.height = 10;
+            this.direction = 'right';
+            this.body = [
+                {x:0, y:0}
+            ];
+			var ctrl = false;
+			document.body.onkeydown = function(e) {
+				var ev = e || window.event;
+				switch(ev.keyCode) {
+					case 38:
+						if (snake.direction != 'down') {
+							snake.direction = "up";
+						}
+						break;
+					case 40:
+						if (snake.direction != "up") {
+							snake.direction = "down";
+						}
+						break;
+					case 37:
+						if (snake.direction != "right") {
+							snake.direction = "left";
+						}
+						break;
+					case 39:
+						if (snake.direction != "left") {
+							snake.direction = "right";
+						}
+						break;
+					case 32:
+						if(ctrl == false) {
+							clearInterval(timer);
+							ctrl = true;
+						}else {
+							timer = setInterval("snake.run()", 100);
+							ctrl = false;
+						}
+					break;
+				}
+			}
+            this.display = function() {
+				span.innerHTML = '当前得分为：' + (this.body.length-1);
+                for (var i = 0; i < this.body.length; i++) {
+                    if (this.body[i].x != null) {
+                        var s = document.createElement('div');
+						s.style.borderRadius = '50%';
+                        s.style.width = this.width + 'px';
+                        s.style.height = this.height + 'px';
+                        s.style.background = "white";
+						s.style.transition = 'all 0.5s';
+                        s.style.position = 'absolute';
+                        s.style.left = this.body[i].x * this.width + 'px';
+                        s.style.top = this.body[i].y * this.height + 'px';
+                        map.appendChild(s);
+                        this.body[i].flag = s;
+                    }
+                }
+            }
+            this.run = function() {
+                for (var i = this.body.length-1; i > 0; i--) {
+                    this.body[i].x = this.body[i-1].x;
+                    this.body[i].y = this.body[i-1].y;
+                }
+                switch(this.direction) {
+                    case "left":
+                        this.body[0].x -= 1;
+                        break;
+                    case "right":
+                        this.body[0].x += 1;
+                        break;
+                    case "up":
+                        this.body[0].y -= 1;
+                        break;
+                    case "down":
+                        this.body[0].y += 1;
+                        break;
+                }
+                if (this.body[0].x < 0 || this.body[0].x > 49 || this.body[0].y < 0 || this.body[0].y > 49) {
+                    clearInterval(timer);
+					begin.style.width = '400px';
+					begin.style.marginLeft = '-200px';
+					span.style.display = 'none';
+					alert('你死了');
+					begin.innerHTML = '你撞墙了<br>得分：' + (this.body.length-1) + '<br>点击重新开始';
+                    for (var i = 0; i < this.body.length; i++) {
+                       if (this.body[i].flag != null) {
+                            map.removeChild(this.body[i].flag);
+                        }
+                    }
+                    this.body = [
+                        {x:0, y:0}
+                    ];
+                    this.direction = 'right';
+                    this.display();
+					begin.style.display = 'block';
+                }
+                if (this.body[0].x == food.x && this.body[0].y == food.y) {
+                    this.body.push({x: null, y: null, flag: null});
+                    map.removeChild(food.flag);
+                    food.display();
+                }
+                for (var i = 1; i < this.body.length; i++) {
+                    if (this.body[0].x == this.body[i].x && this.body[0].y == this.body[i].y) {
+                        clearInterval(timer);
+						begin.style.width = '400px';
+						begin.style.marginLeft = '-200px';
+						span.style.display = 'none';
+						alert('你死了');
+						begin.innerHTML = '你吃掉了自己<br>得分：' + (this.body.length-1) + '<br>点击重新开始';
+                        for (var i=0; i<this.body.length; i++) {
+                        	if (this.body[i].flag != null) {
+                            	map.removeChild(this.body[i].flag);
+                        	}
+                        }
+                        this.body = [
+                            {x:0, y:0},
+                        ];
+                        this.direction = 'right';
+                        this.display();
+						begin.style.display = 'block';
+                    }
+                }
+                for (var i=0; i < this.body.length; i++) {
+                   if (this.body[i].flag != null) {
+                            map.removeChild(this.body[i].flag);
+                        }
+                }
+                this.display();
+            }
+        }
+        function Food() {
+            this.width = 10;
+            this.height = 10;
+            this.display = function() {
+                var f = document.createElement('div');
+                this.flag = f;
+                f.style.width = this.width + 'px';
+                f.style.height = this.height + 'px';
+				f.style.borderRadius = '50%';
+                f.style.background = 'white';
+                f.style.position = 'absolute';
+                this.x = Math.floor(Math.random()*50);
+                this.y = Math.floor(Math.random()*50);
+                f.style.left = this.x * this.width + 'px';
+                f.style.top = this.y * this.height + 'px';
+                map.appendChild(f);
+            }
+        }
+        var snake = new Snake();
+        var food = new Food();
+        snake.display();
+        food.display();
+ 
+        var begin = document.getElementById('begin');
+        var timer;
+        begin.onclick = function() {
+			span.style.display = 'block';
+			this.style.display = 'none';
+            clearInterval(timer);
+            timer = setInterval("snake.run()", 100);
+        }
+		var num = false;
+		black.onclick = function() {
+			if(num == false) {
+				father.style.background = 'black';
+				this.style.color = 'white';
+				this.style.background = 'linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4)';
+				this.style.backgroundSize = '400%';
+				this.style.borderColor = 'white';
+				this.innerHTML = '炫彩模式';
+				num = true;
+			}else {
+				father.style.background = '';
+				this.style.background = '';
+				this.style.background = 'black';
+				this.style.backgroundSize = '';
+				this.style.color = 'white';
+				this.style.borderColor = 'black';
+				this.innerHTML = '酷黑模式';
+				num = false;
+			}
+		}
+		black.onmouseover = function() {
+				this.style.color = 'white';
+				this.style.backgroundColor = 'black';
+			
+		}
+		black.onmouseout = function() {
+			if(num == false) {
+				this.style.background = '';
+				this.style.background = '';
+				this.style.backgroundSize = '';
+				this.style.color = 'black';
+			}
+		}
+		back.onclick = function() {
+			setTimeout(
+				function() {
+					father.style.transform = 'rotate(0deg) skew(0deg) scale(.5)';
+			},0);
+			setTimeout(
+				function() {
+				father.style.opacity = '0';
+				father.style.left = '-1500px';
+			},250);
+			setTimeout(
+				function() {
+					window.location.replace("../主页/主页.html");
+					load.style.display = 'none';
+					father.style.transform = '';
+			},450);
+		}
+    </script>
+</html>

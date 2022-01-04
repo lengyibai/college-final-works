@@ -1,0 +1,844 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>小黄人</title>
+	<style>
+		.xiaohuangren {
+			width: 700px;
+			height: 850px;
+			margin: 0 auto;
+			position: relative;
+		}
+
+		.body {
+			width: 300px;
+			height: 450px;
+			/*border: 5px solid rgb(0,0,0);*/
+			background-color: rgba(245, 206, 0, 1.00);
+			position: absolute;
+			top: 100px;
+			left: 200px;
+			border-radius: 130px 130px 90px 90px;
+			overflow: hidden;
+		}
+
+		.hair-one,
+		.hair-two,
+		.hair-three,
+		.hair-four,
+		.hair-five,
+		.hair-six,
+		.hair-seven,
+		.hair-eight,
+		.hair-nine,
+		.hair-ten,
+		.hair-eleven {
+			width: 150px;
+			height: 80px;
+			border-top: 3px solid rgb(0, 0, 0);
+			border-radius: 50%;
+			position: absolute;
+		}
+
+		.hair-one {
+			left: 190px;
+			top: 80px;
+		}
+
+		.hair-two {
+			left: 190px;
+			top: 80px;
+		}
+
+		.hair-three {
+			left: 190px;
+			top: 80px;
+		}
+
+		.hair-four {
+			left: 190px;
+			top: 80px;
+		}
+
+		.hair-five {
+			left: 190px;
+			top: 80px;
+		}
+
+		.hair-six {
+			left: 355px;
+			top: 80px;
+		}
+
+		.hair-seven {
+			left: 355px;
+			top: 80px;
+		}
+
+		.hair-eight {
+			left: 355px;
+			top: 80px;
+		}
+
+		.hair-nine {
+			left: 355px;
+			top: 80px;
+		}
+
+		.hair-ten {
+			left: 355px;
+			top: 80px;
+		}
+
+		.eye {
+			position: absolute;
+			top: 65px;
+			left: 40px;
+		}
+
+		.eye-left,
+		.eye-right {
+			width: 90px;
+			height: 90px;
+			background-color: rgb(255, 255, 255);
+			border-radius: 50%;
+			border: 10px solid rgb(128, 128, 128);
+			box-shadow: rgb(0, 0, 0) 0 5px 15px;
+			float: left;
+		}
+
+		.eyes {
+			position: absolute;
+			top: 65px;
+			left: 40px;
+		}
+
+		.eyes-left,
+		.eyes-right {
+			width: 90px;
+			height: 90px;
+			background-color: rgb(255, 255, 255);
+			border-radius: 50%;
+			border: 10px solid rgb(128, 128, 128);
+			box-shadow: rgb(0, 0, 0) 0 5px 15px inset;
+			float: left;
+		}
+
+		.eyes-left-black,
+		.eyes-right-black {
+			width: 40px;
+			height: 40px;
+			background-color: rgb(0, 0, 0);
+			border-radius: 50%;
+			position: absolute;
+			overflow: hidden;
+		}
+
+		.eyes-left-black {
+			top: 25px;
+			left: 36px;
+		}
+
+		.eyes-right-black {
+			top: 25px;
+			right: 33px;
+		}
+
+		.eyes-left-white,
+		.eyes-right-white {
+			width: 20px;
+			height: 20px;
+			background-color: rgb(255, 255, 255);
+			border-radius: 50%;
+			position: absolute;
+			top: 3px;
+			left: 3px;
+		}
+
+		.yandai {
+			position: absolute;
+			top: 110px;
+			left: 85px;
+		}
+
+		.yandai-one,
+		.yandai-two {
+			width: 40px;
+			height: 25px;
+			background-color: rgb(0, 0, 0);
+			position: absolute;
+			box-shadow: rgb(0, 0, 0) 0 2px 10px;
+		}
+
+		.yandai-one {
+			right: 45px;
+		}
+
+		.yandai-two {
+			left: 175px;
+		}
+
+		.mouse {
+			width: 90px;
+			height: 40px;
+			background-color: red;
+			position: absolute;
+			box-shadow: rgb(0, 0, 0) 0 -5px 10px inset;
+			border-radius: 10px 10px 100px 100px;
+			bottom: 215px;
+			left: 105px;
+			overflow: hidden;
+		}
+
+		.tooth-one,
+		.tooth-two {
+			width: 20px;
+			height: 20px;
+			background-color: aliceblue;
+			position: absolute;
+			box-shadow: rgb(0, 0, 0) 0 3px 8px inset;
+			border-radius: 0 0 3px 3px;
+		}
+
+		.tooth-one {
+			left: 24px;
+		}
+
+		.tooth-two {
+			left: 48px;
+		}
+
+		.left-shoubi {
+			width: 140px;
+			height: 50px;
+			background-color: rgba(245, 206, 0, 1.00);
+			position: absolute;
+			bottom: 470px;
+			left: 90px;
+			border-radius: 30px 30px 30px 30px;
+			box-shadow: rgb(0, 0, 0) 0 3px 8px;
+			z-index: -1;
+		}
+
+		.right-shoubi {
+			width: 140px;
+			height: 50px;
+			background-color: rgba(245, 206, 0, 1.00);
+			position: absolute;
+			bottom: 470px;
+			left: 470px;
+			transform: rotate(65deg);
+			border-radius: 30px 30px 30px 30px;
+			box-shadow: rgb(0, 0, 0) 0 3px 8px;
+			z-index: -1;
+		}
+
+		.trousers {
+			width: 100%;
+			height: 120px;
+			position: absolute;
+			top: 250px;
+			left: 90px;
+		}
+
+		.trousers-top {
+			width: 200px;
+			height: 80px;
+			background-color: rgba(0, 76, 253, 1.00);
+			position: absolute;
+			border: 0px solid #000000;
+			top: 10px;
+			left: -40px;
+			border-bottom: none;
+			/*隐藏下边框线*/
+			box-shadow: rgb(0, 0, 0) 0 -2px 5px;
+			z-index: 2;
+		}
+
+		.trousers-bottom {
+			width: 310px;
+			height: 160px;
+			background-color: rgba(0, 76, 253, 1.00);
+			position: absolute;
+			top: 90px;
+			left: -95px;
+			box-shadow: rgb(0, 0, 0) 0 -2px 5px;
+			border: 0px solid #000000;
+			z-index: 1;
+
+		}
+
+		.trousers-top-left,
+		.trousers-top-right {
+			width: 130px;
+			height: 20px;
+			background-color: rgba(0, 76, 253, 1.00);
+			box-shadow: rgb(0, 0, 0) 0 3px 3px;
+			position: absolute;
+		}
+
+		.trousers-top-left {
+			left: -75px;
+			top: -25px;
+			transform: rotate(45deg);
+		}
+
+		.trousers-top-right {
+			left: 145px;
+			top: -25px;
+			transform: rotate(-45deg);
+		}
+
+		.trousers-top-left:after {
+			content: "";
+			width: 10px;
+			height: 10px;
+			border-radius: 50px;
+			background-color: black;
+			position: absolute;
+			left: 100px;
+			top: 5px;
+		}
+
+		.trousers-top-right:after {
+			content: "";
+			width: 10px;
+			height: 10px;
+			border-radius: 50px;
+			background-color: black;
+			position: absolute;
+			left: 15px;
+			top: 5px;
+		}
+
+		.kudou {
+			width: 100px;
+			height: 50px;
+			background-color: rgba(0, 76, 253, 1.00);
+			border: 1px solid rgba(0, 0, 0, 1.00);
+			border-radius: 5px 5px 25px 25px;
+			position: absolute;
+			top: 50px;
+			left: 47px;
+			box-shadow: rgb(0, 0, 0) 0 3px 10px;
+		}
+
+		.kudou:after {
+			content: "";
+			width: 3px;
+			height: 50px;
+			border-radius: 5px 5px 25px 25px;
+			position: absolute;
+			top: 100px;
+			left: 55px;
+			box-shadow: rgb(0, 0, 0) 0 3px 10px inset;
+		}
+
+		.leg-left {
+			width: 45px;
+			height: 75px;
+			background-color: black;
+			position: absolute;
+			bottom: 250px;
+			left: 295px;
+			border-radius: 0 0 10px 0;
+		}
+
+		.jiao-left {
+			width: 50px;
+			height: 30px;
+			background-color: black;
+			position: absolute;
+			bottom: 0px;
+			left: -30px;
+			border-radius: 30px 30px 0 10px;
+		}
+
+		.leg-right {
+			width: 45px;
+			height: 75px;
+			background-color: black;
+			position: absolute;
+			bottom: 250px;
+			left: 370px;
+			border-radius: 0 0 0 10px;
+		}
+
+		.jiao-right {
+			width: 50px;
+			height: 30px;
+			background-color: black;
+			position: absolute;
+			bottom: 0px;
+			left: 25px;
+			border-radius: 30px 30px 0 10px;
+		}
+
+		.yingzi {
+			width: 300px;
+			height: 100px;
+			position: absolute;
+			left: 210px;
+			bottom: 0px;
+			background-color: #8E8E8E;
+			border-radius: 50%;
+			z-index: -2;
+		}
+
+		.eyes-left-black,
+		.eyes-right-black {
+			animation: eyes 2s linear infinite;
+			transform-origin: 75% 75%;
+			/*旋转的位置*/
+		}
+
+		@keyframes eyes {
+			0% {
+				transform: translateY(30px);
+				background-color: #FF0004;
+			}
+
+			50% {
+				transform: translateY(0px);
+				background-color: #0015FF;
+			}
+
+			100% {
+				transform: translateY(30px);
+				background-color: #0015FF;
+			}
+		}
+
+		.left-shoubi {
+			animation: left-shoubi 4s ease-in-out infinite;
+			transform-origin: 100% 50%;
+		}
+
+		@keyframes left-shoubi {
+			0% {
+				transform: rotate(-40deg);
+			}
+
+			25% {
+				transform: rotate(40deg);
+			}
+
+			50% {
+				transform: rotate(-40deg);
+			}
+
+			75% {
+				transform: rotate(40deg);
+			}
+
+			100% {
+				transform: rotate(-40deg);
+			}
+		}
+
+		.right-shoubi {
+			animation: right-shoubi 4s ease-in-out infinite;
+			transform-origin: 0% 50%;
+		}
+
+		@keyframes right-shoubi {
+			0% {
+				transform: rotate(40deg);
+			}
+
+			25% {
+				transform: rotate(-40deg);
+			}
+
+			50% {
+				transform: rotate(40deg);
+			}
+
+			75% {
+				transform: rotate(-40deg);
+			}
+
+			100% {
+				transform: rotate(40deg);
+			}
+		}
+
+		.mouse {
+			animation: mouse 2s ease-in-out infinite;
+		}
+
+		@keyframes mouse {
+			0% {
+				height: 0px;
+				bottom: 260px;
+			}
+
+			50% {
+				height: 40px;
+				bottom: 220px;
+			}
+
+			100% {
+				height: 0px;
+				bottom: 260px;
+			}
+		}
+
+		.hair-one {
+			animation: hair-one 2s ease-in-out infinite;
+			transform-origin: 100% 100%;
+		}
+
+		@keyframes hair-one {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			50% {
+				transform: rotate(20deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		.hair-two {
+			animation: hair-two 3s ease-in-out infinite;
+			transform-origin: 100% 100%;
+		}
+
+		@keyframes hair-two {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			50% {
+				transform: rotate(20deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		.hair-three {
+			animation: hair-three 4s ease-in-out infinite;
+			transform-origin: 100% 100%;
+		}
+
+		@keyframes hair-three {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			50% {
+				transform: rotate(20deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		.hair-four {
+			animation: hair-four 5s ease-in-out infinite;
+			transform-origin: 100% 100%;
+		}
+
+		@keyframes hair-four {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			50% {
+				transform: rotate(20deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		.hair-five {
+			animation: hair-five 6s ease-in-out infinite;
+			transform-origin: 100% 100%;
+		}
+
+		@keyframes hair-five {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			50% {
+				transform: rotate(20deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		.hair-six {
+			animation: hair-six 2s ease-in-out infinite;
+			transform-origin: 0;
+		}
+
+		@keyframes hair-six {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			50% {
+				transform: rotate(-20deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		.hair-seven {
+			animation: hair-seven 3s ease-in-out infinite;
+			transform-origin: 0;
+		}
+
+		@keyframes hair-seven {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			50% {
+				transform: rotate(-20deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		.hair-eight {
+			animation: hair-eight 4s ease-in-out infinite;
+			transform-origin: 0;
+		}
+
+		@keyframes hair-eight {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			50% {
+				transform: rotate(-20deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		.hair-nine {
+			animation: hair-nine 5s ease-in-out infinite;
+			transform-origin: 0;
+		}
+
+		@keyframes hair-nine {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			50% {
+				transform: rotate(-20deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		.hair-ten {
+			animation: hair-ten 6s ease-in-out infinite;
+			transform-origin: 0;
+		}
+
+		@keyframes hair-ten {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			50% {
+				transform: rotate(-40deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		.leg-left {
+			animation: leg-left 2s ease-in-out infinite;
+			transform-origin: 100% -100%;
+		}
+
+		@keyframes leg-left {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			50% {
+				transform: rotate(10deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		.leg-right {
+			animation: leg-right 2s ease-in-out infinite;
+			transform-origin: 100% -100%;
+		}
+
+		@keyframes leg-right {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			50% {
+				transform: rotate(-15deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		.xiaohuangren {
+			animation: xiaohuangren 2s linear infinite;
+		}
+
+		@keyframes xiaohuangren {
+			0% {
+				margin: 70px auto;
+			}
+
+			50% {
+				margin: -50px auto;
+			}
+
+			100% {
+				margin: 70px auto;
+			}
+		}
+
+		.yingzi {
+			animation: yingzi 2s linear infinite;
+		}
+
+		@keyframes yingzi {
+			0% {
+				width: 300px;
+				bottom: 175px;
+			}
+
+			50% {
+				width: 100px;
+				bottom: 50px;
+				left: 300px
+			}
+
+			100% {
+				width: 300px;
+				bottom: 175px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="xiaohuangren">
+		<div class="hair">
+			<div class="hair-one"></div>
+			<div class="hair-two"></div>
+			<div class="hair-three"></div>
+			<div class="hair-four"></div>
+			<div class="hair-five"></div>
+			<div class="hair-six"></div>
+			<div class="hair-seven"></div>
+			<div class="hair-eight"></div>
+			<div class="hair-nine"></div>
+			<div class="hair-ten"></div>
+		</div>
+		<div class="body">
+			<!--身体-->
+			<div class="yandai">
+				<!--眼带-->
+				<div class="yandai-one"></div>
+				<div class="yandai-two"></div>
+			</div>
+			<div class="eye">
+				<!--补充外阴影的副眼-->
+				<div class="eye-left"></div>
+				<div class="eye-right"></div>
+			</div>
+			<div class="eyes">
+				<!--眼睛-->
+				<div class="eyes-left">
+					<!--左眼-->
+					<div class="eyes-left-black">
+						<!--虹膜-->
+						<div class="eyes-left-white"></div>
+						<!--反光点-->
+					</div>
+
+				</div>
+				<div class="eyes-right">
+					<!--右眼-->
+					<div class="eyes-right-black">
+						<!--虹膜-->
+						<div class="eyes-right-white"></div>
+						<!--反光点-->
+					</div>
+				</div>
+			</div>
+			<div class="mouse">
+				<!--嘴巴-->
+				<div class="tooth">
+					<!--牙齿-->
+					<div class="tooth-one"></div>
+					<div class="tooth-two"></div>
+				</div>
+			</div>
+			<div class="trousers">
+				<!--裤子-->
+				<div class="trousers-top">
+					<!--裤子上部-->
+					<div class="kudou"></div>
+					<div class="trousers-top-left"></div>
+					<!--左吊带-->
+					<div class="trousers-top-right"></div>
+					<!--右吊带-->
+				</div>
+				<div class="trousers-bottom">
+					<!--裤子下部-->
+				</div>
+			</div>
+		</div>
+		<div class="left-shoubi"></div>
+		<div class="right-shoubi"></div>
+		<!--手臂-->
+		<div class="leg">
+			<div class="leg-left">
+				<div class="jiao-left"></div>
+			</div>
+			<div class="leg-right">
+				<div class="jiao-right">
+				</div>
+			</div>
+		</div>
+		<div class="yingzi"></div>
+	</div>
+</body>
+
+</html>

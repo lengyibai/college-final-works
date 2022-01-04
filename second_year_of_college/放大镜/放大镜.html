@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<style>
+		* {
+			padding: 0 0;
+			margin: 0 0;
+			outline: none;
+			font-size: 30px;
+			font-family: "微软雅黑";
+		}
+
+		body {
+			color: white;
+			overflow: hidden;
+		}
+
+		.father {
+			position: relative;
+			width: 100%;
+			height: 100vh;
+			left: 1550px;
+			background: linear-gradient(45deg, #EA2027, #EA2027, #F79F1F, #C4E538, #009432, #12CBC4, #0652DD, #D980FA, #9980FA, #ED4C67);
+			background-size: 2000% 2000%;
+			animation: bg 20s linear infinite;
+			transform: rotate(0deg) skew(0deg) scale(.5);
+			transition: 0.5s;
+			opacity: 0;
+		}
+
+		@keyframes bg {
+			0% {
+				background-position: 0% 50%;
+			}
+
+			50% {
+				background-position: 100% 50%;
+			}
+
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+
+		input {
+			border: none;
+			border-bottom: 2px solid white;
+			background-color: transparent;
+			color: white;
+		}
+
+		input::placeholder {
+			color: rgba(255, 255, 255, .5);
+		}
+
+		.change {
+			position: relative;
+			width: 100%;
+			float: left;
+		}
+
+		.input {
+			display: inline;
+			float: left;
+			text-align: right;
+			margin-right: 20px;
+		}
+
+		.button {
+			position: relative;
+			width: 55px;
+			float: left;
+		}
+
+		button {
+			display: block;
+			width: 120px;
+			color: white;
+			height: 47px;
+			background-color: transparent;
+			text-align: center;
+			border: none;
+			float: left;
+		}
+
+		button:hover {
+			color: rgba(255, 255, 255, .5);
+		}
+
+		button:active {
+			color: rgba(255, 255, 255, .25);
+		}
+
+		.image {
+			position: relative;
+			width: 400px;
+			height: 400px;
+			background-size: 100%;
+			float: left;
+		}
+
+		.image img {
+			width: 100%;
+		}
+
+		.kuang {
+			visibility: hidden;
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: rgba(255, 255, 255, .5);
+			text-align: center;
+			color: black;
+		}
+
+		.show {
+			position: relative;
+			visibility: hidden;
+			width: 400px;
+			height: 400px;
+			margin-left: 10px;
+			overflow: hidden;
+			float: left;
+		}
+
+		.show img {
+			position: absolute;
+		}
+
+		.black {
+			position: fixed;
+			width: 200px;
+			height: 50px;
+			color: black;
+			text-align: center;
+			line-height: 50px;
+			font-size: 30px;
+			border: 2px solid black;
+			font-weight: bold;
+			font-family: "方正兰亭超细黑简体";
+			animation: glow 8s linear infinite;
+			cursor: pointer;
+			transition: 0.5s;
+			top: 0;
+			right: 0;
+			z-index: 1;
+		}
+
+		@keyframes glow {
+			0% {
+				background-position: 0%;
+			}
+
+			100% {
+				background-position: 400%;
+			}
+		}
+
+		.back {
+			position: fixed;
+			width: 200px;
+			height: 50px;
+			border: 2px solid white;
+			bottom: 0;
+			right: 0;
+			color: white;
+			text-align: center;
+			line-height: 50px;
+			font-size: 30px;
+			cursor: pointer;
+			font-weight: bold;
+			font-family: "方正兰亭超细黑简体";
+			transition: 0.5s;
+		}
+
+		.back:hover {
+			background-color: white;
+			color: black;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="father">
+		<div class="black">酷黑模式</div>
+		<div class="back">主页入口</div>
+		<div class="change">
+			<table class="input">
+				<tr>
+					<td>显示图片大小：</td>
+					<td><input type="text" placeholder="默认为400" id="size"></td>
+				</tr>
+				<tr>
+					<td>放大镜倍数：</td>
+					<td><input type="text" placeholder="默认为4倍" id="mul"></td>
+				</tr>
+				<tr>
+					<td>提高放大清晰度：</td>
+					<td><input type="text" placeholder="默认为400" id="cla"></td>
+				</tr>
+			</table>
+			<div class="button">
+				<button class="Allset">一键设置</button>
+				<button class="chongzhi">恢复默认</button>
+				<button class="style">镜片样式</button>
+			</div>
+		</div>
+		<div class="image">
+			<img src="https://z3.ax1x.com/2021/05/17/g2l0Z8.png">
+			<div class="kuang"></div>
+		</div>
+		<div class="show">
+			<img src="https://z3.ax1x.com/2021/05/17/g2l0Z8.png">
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var father = document.querySelector('.father');
+	setTimeout(
+		function () {
+			father.style.opacity = '1';
+			father.style.left = '0px';
+		}, 0);
+	setTimeout(
+		function () {
+			father.style.opacity = '1';
+			father.style.transform = 'rotate(0deg) skew(0deg) scale(1)';
+		}, 250);
+	var image = document.querySelector('.image');
+	var kuang = document.querySelector('.kuang');
+	var show = document.querySelector('.show');
+	var img = show.children[0];
+	var btn = document.querySelector('.style');
+	var black = document.querySelector('.black');
+	var back = document.querySelector('.back');
+	var img1 = image.querySelector('img');
+	var img2 = show.querySelector('img');
+
+	/******************分界线********************/
+
+	function aaa() {
+		var iow = image.offsetWidth; //图片盒子宽度数值
+		var Kow = kuang.offsetWidth; //调试信息盒子宽度数值
+		var kow = Kow / 100;
+		var sow = show.offsetWidth / 100; //放大镜盒子宽度数值除以100
+		var X = image.offsetWidth - Kow; //图片盒子宽度数值减去调试信息盒子宽度数值
+		var Y = image.offsetHeight - Kow; //图片盒子高度数值减去调试信息盒子宽度数值
+		var l = Kow / 2; //用于鼠标居中在调试信息盒子
+		var t = kuang.offsetHeight / 2; //用于鼠标居中在调试信息盒子
+		var fs = kow * 15; //控制文字大小
+		kuang.style.fontSize = fs + 'px'; //修改文字大小
+
+		//BY 神田新一
+
+		image.onmouseout = function () { //离开图片盒子触发事件
+			kuang.style.visibility = 'hidden'; //调试信息盒子隐藏
+			show.style.visibility = 'hidden'; //放大镜盒子隐藏
+		}
+		image.onmousemove = function (event) { //在盒子内移动触发事件
+			kuang.style.visibility = 'visible'; //调试信息盒子显示
+			show.style.visibility = 'visible'; //放大镜盒子显示
+			image.style.cursor = 'none'; //修改进入图片盒子的鼠标样式
+			img.style.width = iow / kow + '%'; //放大镜盒子放大倍数
+			var x = event.clientX - image.offsetLeft; //鼠标以图片盒子为坐标系
+			var y = event.clientY - image.offsetTop; //鼠标以图片盒子为坐标系
+			var L = x - l; //将鼠标水平居中于调试信息盒子
+			var T = y - t; //将鼠标垂直居中于调试信息盒子
+
+			/*判断调试信息盒子是否超出图片盒子范围，如果是，则固定在边缘*/
+			if (L <= 0) {
+				L = 0;
+			} else if (L >= X) {
+				L = X;
+			}
+			if (T <= 0) {
+				T = 0;
+			} else if (T >= Y) {
+				T = Y;
+			}
+			kuang.style.left = L + 'px'; //调试信息盒子left值
+			kuang.style.top = T + 'px'; //调试信息盒子top值
+			var left = kuang.offsetLeft;
+			var top = kuang.offsetTop;
+			/*kuang.innerHTML = '调试信息'+'<br>'+'left:'+left+'<br>'+'top:'+top+'<br>'+'X：'+x+'<br>'+'Y：'+y;*/
+			img.style.left = -(left / kow * sow) + 'px'; //放大镜盒子的left坐标
+			img.style.top = -(top / kow * sow) + 'px'; //放大镜盒子的top坐标
+		}
+	}
+	var flag = true;
+	btn.onclick = function () {
+		if (flag == true) {
+			btn.innerHTML = '圆形';
+			kuang.style.borderRadius = '50%';
+			show.style.borderRadius = '50%';
+			flag = false;
+		} else {
+			btn.classList.add('square');
+			btn.classList.remove('radius');
+			btn.innerHTML = '矩形';
+			kuang.style.borderRadius = '';
+			show.style.borderRadius = '';
+			flag = true;
+		}
+	}
+	aaa();
+
+	/******************分界线********************/
+	var size = document.querySelector('#size');
+	var mul = document.querySelector('#mul');
+	var cla = document.querySelector('#cla');
+	var Allset = document.querySelector('.Allset');
+	var chongzhi = document.querySelector('.chongzhi');
+	Allset.onclick = function () {
+		var a = size.value;
+		image.style.width = a + 'px';
+		image.style.height = a + 'px';
+		kuang.style.width = (image.offsetWidth / 4) + 'px';
+		kuang.style.height = (image.offsetWidth / 4) + 'px';
+		if (a == '') {} else {
+			size.placeholder = '当前为' + a;
+			size.value = '';
+		}
+		var b = mul.value;
+		kuang.style.width = (image.offsetWidth / b) + 'px';
+		kuang.style.height = (image.offsetWidth / b) + 'px';
+		if (b == '') {} else {
+			mul.placeholder = '当前为' + b + '倍';
+			mul.value = '';
+		}
+		var c = cla.value;
+		show.style.width = c + 'px';
+		show.style.height = c + 'px';
+		if (c == '') {} else {
+			cla.placeholder = '当前为' + c;
+			cla.value = '';
+		}
+		aaa();
+	}
+	chongzhi.onclick = function () {
+		image.style.width = '400px';
+		image.style.height = '400px';
+		size.placeholder = '默认为400';
+		kuang.style.width = '100px';
+		kuang.style.height = '100px';
+		mul.placeholder = '默认为4倍';
+		show.style.width = '400px';
+		show.style.height = '400px';
+		cla.placeholder = '默认为400';
+		btn.classList.remove('square');
+		btn.classList.remove('radius');
+		btn.innerHTML = '镜片样式';
+		kuang.style.borderRadius = '';
+		show.style.borderRadius = '';
+		flag = true;
+		aaa();
+	}
+	var num = false;
+	black.onclick = function () {
+		if (num == false) {
+			father.style.background = 'black';
+			img1.src = '../images/1.1.png';
+			img2.src = '../images/1.png';
+			this.style.color = 'white';
+			this.style.background = 'linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4)';
+			this.style.backgroundSize = '400%';
+			this.style.borderColor = 'white';
+			this.innerHTML = '炫彩模式';
+			num = true;
+		} else {
+			father.style.background = '';
+			img1.src = 'https://z3.ax1x.com/2021/05/17/g2l0Z8.png';
+			img2.src = 'https://z3.ax1x.com/2021/05/17/g2l0Z8.png';
+			this.style.background = '';
+			this.style.background = 'black';
+			this.style.backgroundSize = '';
+			this.style.color = 'white';
+			this.style.borderColor = 'black';
+			this.innerHTML = '酷黑模式';
+			num = false;
+		}
+	}
+	black.onmouseover = function () {
+		this.style.color = 'white';
+		this.style.backgroundColor = 'black';
+	}
+	black.onmouseout = function () {
+		if (num == false) {
+			this.style.background = '';
+			this.style.background = '';
+			this.style.backgroundSize = '';
+			this.style.color = 'black';
+		}
+	}
+	back.onclick = function () {
+		setTimeout(
+			function () {
+				father.style.transform = 'rotate(0deg) skew(0deg) scale(.5)';
+			}, 0);
+		setTimeout(
+			function () {
+				father.style.opacity = '0';
+				father.style.left = '-1500px';
+			}, 250);
+		setTimeout(
+			function () {
+				window.location.replace("../主页/主页.html");
+				load.style.display = 'none';
+				father.style.transform = '';
+			}, 450);
+	}
+</script>
+
+</html>

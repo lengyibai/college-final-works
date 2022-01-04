@@ -1,0 +1,494 @@
+    /*更新时间18:11*/
+    * {
+    	/*通配符*/
+    	margin: 0px;
+    	padding: 0px;
+    	/*内边距*/
+    }
+
+    body {
+    	background: url(images/背景图.jpg);
+    	/*背景图*/
+    	background-position: center 0;
+    	/*背景自适应，随浏览器窗口尺寸自动剪裁*/
+    	background-attachment: fixed;
+    	/*禁止背景与浏览器滚动，固定背景位置*/
+    	background-size: cover;
+    	/*背景图自动填充*/
+    	background-repeat: no-repeat;
+    	/*禁止图片重复*/
+    }
+
+    .father {
+    	width: 1800px;
+    	height: 1500px;
+    	background-color: rgba(50, 50, 50, 0.50);
+    	margin: 0 auto;
+    	box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+    }
+
+    .daohang-one {
+    	width: 1700px;
+    	height: 100px;
+    	background-color: rgba(50, 50, 50, 0.50);
+    	margin: 0 auto;
+    	border-radius: 0 0 20px 20px;
+    	box-shadow: rgb(0, 0, 0) 0px 5px 20px;
+    }
+
+    .daohang-two {
+    	width: 1600px;
+    	height: 100px;
+    	background-color: rgba(50, 50, 50, 0.3);
+    	box-shadow: rgb(0, 0, 0) 0px 5px 20px;
+    	margin: 0px auto;
+    	border-radius: 0 0 20px 20px;
+    	font-family: "仿宋";
+    	font-size: 25px;
+    	color: yellow;
+    	text-align: center;
+    	/*对齐方式*/
+    	line-height: 100px;
+    	text-shadow: rgb(0, 0, 0) 3px 3px 3px;
+    }
+
+    .daohang-two ul {
+    	list-style-type: none;
+    	/*去点，此处无效，笔记*/
+    }
+
+    .box-left-top {
+    	width: 480px;
+    	height: 900px;
+    	color: aliceblue;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	margin: 40px 35px;
+    	border-radius: 30px;
+    	float: left;
+    	box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+    }
+
+    .box-left-top h1 {
+    	width: 176px;
+    	height: 146px;
+    	color: aliceblue;
+    	border-radius: 30px 0 0 0;
+    	text-align: center;
+    	line-height: 135px;
+    	font-size: 30px;
+    	text-shadow: rgb(0, 0, 0) 1px 1px 2px;
+    	float: left;
+    }
+
+    .box-left-top h2 {
+    	width: 176px;
+    	height: 146px;
+    	border-radius: 0;
+    	text-align: center;
+    	line-height: 135px;
+    	border-top: 2px solid white;
+    	font-size: 30px;
+    	text-shadow: rgb(0, 0, 0) 1px 1px 2px;
+    	float: left;
+    }
+
+    .box-left-top h3 {
+    	width: 176px;
+    	height: 146px;
+    	border-radius: 0;
+    	text-align: center;
+    	line-height: 135px;
+    	border-top: 2px solid white;
+    	font-size: 30px;
+    	text-shadow: rgb(0, 0, 0) 1px 1px 2px;
+    	float: left;
+    }
+
+    .box-left-top h4 {
+    	width: 176px;
+    	height: 146px;
+    	border-radius: 0;
+    	text-align: center;
+    	line-height: 135px;
+    	border-top: 2px solid white;
+    	font-size: 30px;
+    	text-shadow: rgb(0, 0, 0) 1px 1px 2px;
+    	float: left;
+    }
+
+    .box-left-top h5 {
+    	width: 176px;
+    	height: 146px;
+    	border-radius: 0;
+    	text-align: center;
+    	line-height: 135px;
+    	border-top: 2px solid white;
+    	font-size: 30px;
+    	text-shadow: rgb(0, 0, 0) 1px 1px 2px;
+    	float: left;
+    }
+
+    .box-left-top h6 {
+    	width: 176px;
+    	height: 146px;
+    	border-radius: 0 0 0 30px;
+    	text-align: center;
+    	line-height: 135px;
+    	border-top: 2px solid white;
+    	font-size: 30px;
+    	text-shadow: rgb(0, 0, 0) 1px 1px 2px;
+    	float: left;
+    }
+
+    .left-one {
+    	width: 300px;
+    	height: 150px;
+    	background: url("images/1.png");
+    	background-size: 350px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	margin: 0px;
+    	border-radius: 0 20px 0 0;
+    	float: right;
+    }
+
+    .left-two {
+    	width: 300px;
+    	height: 150px;
+    	background: url("images/2.png");
+    	background-size: 350px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	margin: 0px;
+    	float: right;
+    }
+
+    .left-three {
+    	width: 300px;
+    	height: 150px;
+    	background: url("images/3.png");
+    	background-size: 350px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	margin: 0px;
+    	float: right;
+    }
+
+    .left-four {
+    	width: 300px;
+    	height: 150px;
+    	background: url("images/4.png");
+    	background-size: 350px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	margin: 0px;
+    	float: right;
+    }
+
+    .left-five {
+    	width: 300px;
+    	height: 150px;
+    	background: url("images/5.png");
+    	background-size: 350px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	margin: 0px;
+    	float: right;
+    }
+
+    .left-six {
+    	width: 300px;
+    	height: 150px;
+    	background: url("images/6.png");
+    	background-size: 350px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	margin: 0px;
+    	border-radius: 0 0 20px 0;
+    	float: right;
+    }
+
+    .box-right-top {
+    	width: 1050px;
+    	height: 300px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	margin: 100px 40px;
+    	border-radius: 20px;
+    	float: left;
+    	box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+    }
+
+    .right-one img {
+    	width: 300px;
+    	border-radius: 20px 20px 0 0;
+    }
+
+    .right-one h1 {
+    	font-size: 50px;
+    	font-family: "仿宋";
+    	margin: 0 45px;
+    	text-shadow: rgb(0, 0, 0) 3px 3px 3px;
+    }
+
+    .right-one a:link {
+    	/*未操作*/
+    	color: white;
+    	text-decoration: none;
+    	/*去横线*/
+    	font-family: "仿宋";
+    }
+
+    .right-one a:visited {
+    	/*点击后*/
+    	color: white;
+    	text-decoration: none;
+    }
+
+    .right-one a:hover {
+    	/*鼠标悬浮*/
+    	color: black;
+    	text-decoration: none;
+    }
+
+    .right-one a:active {
+    	/*点击瞬间*/
+    	color: green;
+    	text-decoration: none;
+    }
+
+    .right-one {
+    	width: 300px;
+    	height: 250px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	position: absolute;
+    	margin: 25px 25px;
+    	border-radius: 20px;
+    	box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+    }
+
+    .right-one img {
+    	width: 300px;
+    	height: 180px;
+    	border-radius: 20px 20px 0 0;
+    }
+
+    .right-two {
+    	width: 300px;
+    	height: 250px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	position: absolute;
+    	margin: 25px 375px;
+    	border-radius: 20px;
+    	box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+    }
+
+    .right-two img {
+    	width: 300px;
+    	height: 180px;
+    	border-radius: 20px 20px 0 0;
+    }
+
+    .right-two h1 {
+    	font-size: 50px;
+    	font-family: "仿宋";
+    	margin: 0 45px;
+    	text-shadow: rgb(0, 0, 0) 3px 3px 3px;
+    }
+
+    .right-two a:link {
+    	color: white;
+    	text-decoration: none;
+    	font-family: "仿宋";
+    }
+
+    .right-two a:visited {
+    	color: white;
+    	text-decoration: none;
+    }
+
+    .right-two a:hover {
+    	color: black;
+    	text-decoration: none;
+    }
+
+    .right-two a:active {
+    	color: green;
+    	text-decoration: none;
+    }
+
+    .right-three {
+    	width: 300px;
+    	height: 250px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	position: absolute;
+    	margin: 25px 725px;
+    	border-radius: 20px;
+    	box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+    }
+
+    .right-three img {
+    	width: 300px;
+    	height: 180px;
+    	border-radius: 20px 20px 0 0;
+    }
+
+    .right-three h1 {
+    	font-size: 50px;
+    	font-family: "仿宋";
+    	margin: 0 45px;
+    	text-shadow: rgb(0, 0, 0) 3px 3px 3px;
+    }
+
+    .right-three a:link {
+    	color: white;
+    	text-decoration: none;
+    	font-family: "仿宋";
+    }
+
+    .right-three a:visited {
+    	color: white;
+    	text-decoration: none;
+    }
+
+    .right-three a:hover {
+    	color: black;
+    	text-decoration: none;
+    }
+
+    .right-three a:active {
+    	color: green;
+    	text-decoration: none;
+    }
+
+    .box-right-top {
+    	width: 1050px;
+    	height: 300px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	margin: 70px 40px;
+    	border-radius: 20px;
+    	float: left;
+    	box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+    }
+
+    .top-one {
+    	width: 300px;
+    	height: 250px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	position: absolute;
+    	margin: 25px 25px;
+    	border-radius: 20px;
+    	box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+    }
+
+    .top-one img {
+    	width: 300px;
+    	height: 180px;
+    	border-radius: 20px 20px 0 0;
+    }
+
+    .top-one h1 {
+    	font-size: 50px;
+    	font-family: "仿宋";
+    	margin: 0 45px;
+    	text-shadow: rgb(0, 0, 0) 3px 3px 3px;
+    }
+
+    .top-one a:link {
+    	color: white;
+    	text-decoration: none;
+    }
+
+    .top-one a:visited {
+    	color: white;
+    	text-decoration: none;
+    }
+
+    .top-one a:hover {
+    	color: black;
+    	text-decoration: none;
+    }
+
+    .top-one a:active {
+    	color: green;
+    	text-decoration: none;
+    }
+
+    .top-two {
+    	width: 300px;
+    	height: 250px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	position: absolute;
+    	margin: 25px 375px;
+    	border-radius: 20px;
+    	box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+    }
+
+    .top-two img {
+    	width: 300px;
+    	height: 180px;
+    	border-radius: 20px 20px 0 0;
+    }
+
+    .top-two h1 {
+    	font-size: 50px;
+    	font-family: "仿宋";
+    	margin: 0 45px;
+    	text-shadow: rgb(0, 0, 0) 3px 3px 3px;
+    }
+
+    .top-two a:link {
+    	color: white;
+    	text-decoration: none;
+    }
+
+    .top-two a:visited {
+    	color: white;
+    	text-decoration: none;
+    }
+
+    .top-two a:hover {
+    	color: black;
+    	text-decoration: none;
+    }
+
+    .top-two a:active {
+    	color: green;
+    	text-decoration: none;
+    }
+
+    .top-three {
+    	width: 300px;
+    	height: 250px;
+    	background-color: rgba(50, 50, 50, 0.40);
+    	position: absolute;
+    	margin: 25px 725px;
+    	border-radius: 20px;
+    	box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+    }
+
+    .top-three img {
+    	width: 300px;
+    	height: 180px;
+    	border-radius: 20px 20px 0 0;
+    }
+
+    .top-three h1 {
+    	font-size: 50px;
+    	font-family: "仿宋";
+    	margin: 0 45px;
+    	text-shadow: rgb(0, 0, 0) 3px 3px 3px;
+    }
+
+    .top-three a:link {
+    	color: white;
+    	text-decoration: none;
+    }
+
+    .top-three a:visited {
+    	color: white;
+    	text-decoration: none;
+    }
+
+    .top-three a:hover {
+    	color: black;
+    	text-decoration: none;
+    }
+
+    .top-three a:active {
+    	color: green;
+    	text-decoration: none;
+    }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>表单</title>
+	<link href="CSS1/个人信息.css" rel="stylesheet" type="text/css">
+	<!--CSS文件-->
+</head>
+
+<body>
+	<div class="dahezi">
+		<!--大盒子-->
+		<h1 class="dabiaoti">个人资料填写</h1>
+		<!--大标题-->
+		<div class="xiaohezi">
+			<!--小盒子-->
+			<div class="dengluhezi">
+				<!--小盒子1-->
+				<form action="表单.html">
+					<!--链接到...-->
+					<span class="sex"> 性别：
+						<!--性别盒子-->
+						<label><input type="radio" name="one" /> 男性</label>
+						<label><input type="radio" name="one" /> 女性</label>
+					</span>
+					<span class="zhuanye"><br />专业：
+						<!--专业盒子-->
+						<p><input type="checkbox"> Java</p>
+						<p><input type="checkbox"> 数据库</p>
+						<p><input type="checkbox"> 网页设计</p>
+						<br /><br /><input class="wenjian" type="file" /><br />上传文件<br />
+						<!--文件盒子-->
+					</span>
+					<span class="show">自我介绍：
+						<!--自我介绍盒子-->
+						<textarea class="show1" cols="20" rows="5">
+						</textarea>
+					</span>
+					<span class="dizhi"><br />地址：
+						<!--地址盒子-->
+						<select class="weizhi">
+							<!--详细地址盒子-->
+							<optgroup label="四川">
+								<option>成都</option>
+								<option>雅安</option>
+								<option>达州</option>
+							</optgroup>
+							<optgroup label="湖南">
+								<option>长沙</option>
+								<option>常德</option>
+								<option>怀化</option><br /><br /><br />
+							</optgroup>
+						</select>
+					</span>
+					<div class="fanhui-chongzhi">
+						<!--登录、重置盒子-->
+						<button class="fanhui" type="submit">返回</button>
+						<button class="chongzhi" type="reset">重新输入</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

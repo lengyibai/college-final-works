@@ -1,0 +1,980 @@
+@charset "utf-8";
+
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background: url("images/背景.jpg");
+	background-position: center 0;
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.father {
+	width: 1500px;
+	height: 3827px;
+	background-color: rgba(0, 0, 0, 0.3);
+	margin: 0px auto;
+	position: relative;
+}
+
+/*******************************滚动图下面的大盒子****************************/
+
+.son {
+	width: 1500px;
+	position: absolute;
+	top: 1300px;
+}
+
+/************************哔哩哔哩logo***************************/
+
+.daohang img {
+	width: 200px;
+	position: absolute;
+	top: 0px;
+	left: 625px;
+}
+
+/*******************首页、直播、番剧等***********************/
+
+.daohanglan ul {
+	width: 405px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	float: left;
+}
+
+.daohanglan ul a {
+	width: 40px;
+	font-size: 20px;
+	color: aliceblue;
+	margin: 0px 10px;
+	text-decoration: none;
+	text-shadow: rgb(0, 0, 0) 0px 4px 1px;
+	float: left;
+}
+
+.daohanglan ul a:hover {
+	color: rgba(0, 179, 255, 1.00);
+	text-shadow: rgb(0, 0, 0) 0px 4px 1px;
+}
+
+.daohanglan ul a:active {
+	color: rgba(0, 179, 255, 0.5);
+}
+
+/************************第一导航栏盒子********************************/
+.daohang {
+	width: 1500px;
+	height: 300px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+/*******************************搜索*******************************/
+
+.sousuo {
+	width: 260px;
+	height: 25px;
+	color: white;
+	font-size: 30px;
+	position: absolute;
+	top: 120px;
+	left: 600px;
+}
+
+.kuang {
+	width: 200px;
+	height: 25px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.sousuo a {
+	font-size: 20px;
+	width: 60px;
+	height: 29px;
+	background-color: rgba(200, 200, 200, 1.00);
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	position: absolute;
+	top: 0px;
+	left: 200px;
+}
+
+.sousuo a:active {
+	background-color: rgba(166, 166, 166, 1.00);
+	box-shadow: black 1px 1px 2px inset;
+	color: rgba(255, 255, 255, 1.00);
+}
+
+/*******************************主页、消息、收藏等****************************/
+
+.geren {
+	width: 350px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+
+}
+
+.geren img {
+	width: 50px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.geren ul {
+	width: 420px;
+	margin: 10px 50px;
+	float: left;
+}
+
+.geren ul a {
+	font-size: 20px;
+	color: aliceblue;
+	margin: 0 10px;
+	text-decoration: none;
+	text-shadow: rgb(0, 0, 0) 0px 4px 1px;
+	float: left;
+}
+
+.geren ul a:hover {
+	color: aqua;
+	color: rgba(0, 179, 255, 1.00);
+}
+
+.geren ul a:active {
+	color: rgba(0, 179, 255, 0.5);
+}
+
+/*******************************滚动图****************************/
+
+.daohang1 {
+	width: 1500px;
+	height: 844px;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 700px;
+	left: 0px;
+	overflow: hidden;
+}
+
+.images {
+	width: 7500px;
+	height: 394px;
+}
+
+.images img {
+	width: 1500px;
+	height: 844px;
+	float: left;
+}
+
+.images {
+	animation: images 10s linear infinite;
+}
+
+@keyframes images {
+
+	10%,
+	15% {
+		margin-left: 0px;
+	}
+
+	20%,
+	40% {
+		margin-left: -1500px;
+	}
+
+	45%,
+	65% {
+		margin-left: -3000px;
+	}
+
+	70%,
+	90% {
+		margin-left: -4500px;
+	}
+
+	95%,
+	100% {
+		margin-left: -6000px;
+	}
+}
+
+/*************************点击门**************************/
+
+.photo {
+	width: 700px;
+	height: 344px;
+	position: absolute;
+	top: 225px;
+	right: 0px;
+	background-color: white;
+}
+
+.image {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 800px;
+	height: 500px;
+	transform: scale(0);
+	/**图片缩放动画**/
+	opacity: 0;
+	/**图片缩放逐渐透明**/
+	transition: all 0.5s;
+	/**图片缩放时间**/
+}
+
+.image img {
+	width: 700px;
+	height: 344px;
+}
+
+.photo input {
+	/*去掉多余的按钮*/
+	display: none;
+}
+
+.photo input:checked+.image {
+	opacity: 1;
+	/**图片放大逐渐不透明**/
+	transform: scale(1);
+	/**图片放大动画**/
+	transition: all 0.5s;
+	/**图片放大动画**/
+}
+
+/****************控制点盒子****************/
+
+.dots {
+	width: 800px;
+	height: 50px;
+	position: absolute;
+	left: 0px;
+	bottom: -50px;
+	text-align: center;
+}
+
+/****************控制点****************/
+
+.a {
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: rgba(255, 0, 4, 0.5);
+}
+
+.b {
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 100px;
+	background-color: rgba(255, 87, 0, 0.5);
+}
+
+.c {
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 200px;
+	background-color: rgba(255, 221, 0, 0.5);
+}
+
+.d {
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 300px;
+	background-color: rgba(0, 255, 92, 0.5);
+}
+
+.e {
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 400px;
+	background-color: rgba(0, 187, 255, 0.5);
+}
+
+.f {
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 500px;
+	background-color: rgba(0, 5, 255, 0.5);
+}
+
+.g {
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 600px;
+	background-color: rgba(169, 0, 255, 0.5);
+}
+
+.h {
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	top: 50px;
+	left: 300px;
+	background-color: rgba(153, 153, 153, 0.5);
+}
+
+.a:active {
+	background-color: rgba(142, 0, 2, 0.5);
+	cursor: pointer;
+}
+
+.b:active {
+	background-color: rgba(131, 57, 0, 0.5);
+	cursor: pointer;
+}
+
+.c:active {
+	background-color: rgba(136, 118, 0, 0.5);
+	cursor: pointer;
+}
+
+.d:active {
+	background-color: rgba(0, 136, 49, 0.5);
+	cursor: pointer;
+}
+
+.e:active {
+	background-color: rgba(0, 95, 130, 0.5);
+	cursor: pointer;
+}
+
+.f:active {
+	background-color: rgba(0, 2, 142, 0.5);
+	cursor: pointer;
+}
+
+.g:active {
+	background-color: rgba(80, 0, 132, 0.5);
+	cursor: pointer;
+}
+
+.h:active {
+	background-color: rgba(71, 71, 71, 0.5);
+	cursor: pointer;
+}
+
+/*************************滑动门大盒子*************************/
+
+.huadongmen {
+	width: 700px;
+	height: 344px;
+	background-color: aliceblue;
+	position: absolute;
+	top: 225px;
+	left: 0px;
+}
+
+.huadongmen img {
+	width: 700px;
+	height: 344px;
+}
+
+.huadongmen h1 {
+	font-size: 40px;
+	position: absolute;
+	top: 150px;
+	left: 150px;
+}
+
+.huadong-one {
+	width: 700px;
+	height: 50px;
+	position: absolute;
+	bottom: -50px;
+	left: 0px;
+}
+
+/***********************第一滑动门*****************************/
+
+.huadong-one-one {
+	width: 100px;
+	height: 50px;
+	display: inline;
+	background-color: rgba(255, 0, 4, 0.5);
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	animation: huadong-one-one 5s linear infinite;
+}
+
+/*
+@keyframes huadong-one-one{
+	background-color: rgba(255,0,4,0.5);
+}*/
+.huadong-one-one:hover {
+	background-color: rgba(148, 0, 2, 0.5);
+
+}
+
+.huadong-one-one-one {
+	display: none;
+	width: 700px;
+	height: 344px;
+	background-color: rgba(255, 0, 4, 0.5);
+	position: absolute;
+	top: -344px;
+	left: 0px;
+}
+
+.huadong-one-one:hover .huadong-one-one-one {
+	display: block;
+}
+
+/**********************第二滑动门**************************/
+
+.huadong-one-two {
+	width: 100px;
+	height: 50px;
+	display: inline;
+	background-color: rgba(255, 118, 0, 0.5);
+	position: absolute;
+	bottom: 0px;
+	left: 100px;
+}
+
+.huadong-one-two:hover {
+	background-color: rgba(152, 61, 0, 0.5);
+
+}
+
+.huadong-one-two-one {
+	display: none;
+	width: 700px;
+	height: 344px;
+	background-color: rgba(255, 118, 0, 0.5);
+	position: absolute;
+	top: -344px;
+	left: -100px;
+}
+
+.huadong-one-two:hover .huadong-one-two-one {
+	display: block;
+}
+
+/**********************第三滑动门**************************/
+
+.huadong-one-three {
+	width: 100px;
+	height: 50px;
+	display: inline;
+	background-color: rgba(255, 253, 0, 0.5);
+	position: absolute;
+	bottom: 0px;
+	left: 200px;
+}
+
+.huadong-one-three:hover {
+	background-color: rgba(152, 156, 0, 0.5);
+
+}
+
+.huadong-one-three-one {
+	display: none;
+	width: 700px;
+	height: 344px;
+	background-color: rgba(255, 253, 0, 0.5);
+	position: absolute;
+	top: -344px;
+	left: -200px;
+}
+
+.huadong-one-three:hover .huadong-one-three-one {
+	display: block;
+}
+
+/**********************第四滑动门**************************/
+
+.huadong-one-four {
+	width: 100px;
+	height: 50px;
+	display: inline;
+	background-color: rgba(0, 255, 36, 0.5);
+	position: absolute;
+	bottom: 0px;
+	left: 300px;
+}
+
+.huadong-one-four:hover {
+	background-color: rgba(0, 142, 60, 0.5);
+
+}
+
+.huadong-one-four-one {
+	display: none;
+	width: 700px;
+	height: 344px;
+	background-color: rgba(0, 255, 36, 0.5);
+	position: absolute;
+	top: -344px;
+	left: -300px;
+}
+
+.huadong-one-four:hover .huadong-one-four-one {
+	display: block;
+}
+
+/**********************第四滑动门**************************/
+
+.huadong-one-five {
+	width: 100px;
+	height: 50px;
+	display: inline;
+	background-color: rgba(0, 155, 255, 0.5);
+	position: absolute;
+	bottom: 0px;
+	left: 400px;
+}
+
+.huadong-one-five:hover {
+	background-color: rgba(0, 85, 132, 0.5);
+
+}
+
+.huadong-one-five-one {
+	display: none;
+	width: 700px;
+	height: 344px;
+	background-color: rgba(0, 155, 255, 0.5);
+	position: absolute;
+	top: -344px;
+	left: -400px;
+}
+
+.huadong-one-five:hover .huadong-one-five-one {
+	display: block;
+}
+
+/**********************第五滑动门**************************/
+
+.huadong-one-five {
+	width: 100px;
+	height: 50px;
+	display: inline;
+	background-color: rgba(0, 155, 255, 0.5);
+	position: absolute;
+	bottom: 0px;
+	left: 400px;
+}
+
+.huadong-one-five:hover {
+	background-color: rgba(0, 85, 132, 0.5);
+
+}
+
+.huadong-one-five-one {
+	display: none;
+	width: 700px;
+	height: 344px;
+	background-color: rgba(0, 155, 255, 0.5);
+	position: absolute;
+	top: -344px;
+	left: -400px;
+}
+
+.huadong-one-five:hover .huadong-one-five-one {
+	display: block;
+}
+
+/**********************第六滑动门**************************/
+
+.huadong-one-six {
+	width: 100px;
+	height: 50px;
+	display: inline;
+	background-color: rgba(42, 0, 255, 0.5);
+	position: absolute;
+	bottom: 0px;
+	left: 500px;
+}
+
+.huadong-one-six:hover {
+	background-color: rgba(1, 0, 124, 0.5);
+
+}
+
+.huadong-one-six-one {
+	display: none;
+	width: 700px;
+	height: 344px;
+	background-color: rgba(42, 0, 255, 0.5);
+	position: absolute;
+	top: -344px;
+	left: -500px;
+}
+
+.huadong-one-six:hover .huadong-one-six-one {
+	display: block;
+}
+
+/**********************第七滑动门**************************/
+
+.huadong-one-seven {
+	width: 100px;
+	height: 50px;
+	display: inline;
+	background-color: rgba(234, 0, 248, 0.5);
+	position: absolute;
+	bottom: 0px;
+	left: 600px;
+}
+
+.huadong-one-seven:hover {
+	background-color: rgba(126, 0, 121, 0.5);
+
+}
+
+.huadong-one-seven-one {
+	display: none;
+	width: 700px;
+	height: 344px;
+	background-color: rgba(234, 0, 248, 0.5);
+	position: absolute;
+	top: -344px;
+	left: -600px;
+}
+
+.huadong-one-seven:hover .huadong-one-seven-one {
+	display: block;
+}
+
+/******************首页、动态、关注*************************/
+
+.daohang-one {
+	width: 1500px;
+	height: 90px;
+	position: absolute;
+	top: 280px;
+	left: 0;
+}
+
+.daohang-one-one {
+	width: 250px;
+	height: 90px;
+	position: absolute;
+	top: 10px;
+	left: 0px;
+}
+
+.daohang-one-one a {
+	width: 30px;
+	height: 50px;
+	font-size: 15px;
+	color: white;
+	text-decoration: none;
+	margin: 50px 25px;
+	float: left;
+}
+
+.daohang-one-one a b {
+	width: 50px;
+	height: 100px;
+	position: absolute;
+	top: 0px;
+	left: 15px;
+}
+
+.daohang-one-one a b img {
+	width: 50px;
+}
+
+.daohang-one-one a b:hover {
+	top: -10px;
+}
+
+.daohang-one-one a c {
+	width: 50px;
+	height: 100px;
+	position: absolute;
+	top: 0px;
+	left: 95px;
+}
+
+.daohang-one-one a c img {
+	width: 50px;
+}
+
+.daohang-one-one a c:hover {
+	top: -10px;
+}
+
+.daohang-one-one a d {
+	width: 50px;
+	height: 100px;
+	position: absolute;
+	top: -5px;
+	left: 173px;
+}
+
+.daohang-one-one a d img {
+	width: 50px;
+}
+
+.daohang-one-one a d:hover {
+	top: -15px;
+}
+
+/***************************视频分类*************************/
+
+.daohang-one-two {
+	width: 900px;
+	height: 90px;
+	position: absolute;
+	border-left: 1px solid #FFFFFF;
+	border-right: 1px solid #FFFFFF;
+	top: 0px;
+	left: 300px;
+}
+
+.daohang-one-two a {
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+	line-height: 40px;
+	margin: 0px 20px;
+	float: left;
+}
+
+/************************专栏、小黑屋、赛事等************************/
+
+.daohang-one-three {
+	width: 250px;
+	height: 90px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.daohang-one-three a {
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+	line-height: 40px;
+	margin: 5px 15px;
+	float: left;
+}
+
+.daohang-one a:hover {
+	color: rgba(0, 179, 255, 1.00);
+	text-shadow: rgb(0, 0, 0) 0px 4px 1px;
+}
+
+.daohang-one a:active {
+	color: rgba(0, 179, 255, 0.5);
+}
+
+/*******************各种图片************************/
+
+.daohang-two {
+	width: 1500px;
+	position: absolute;
+	top: 400px;
+	left: 0px;
+}
+
+.daohang-two-one {
+	width: 500px;
+	height: 250px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.daohang-two-one img {
+	width: 100%;
+	height: 100%;
+}
+
+.daohang-two-two {
+	width: 1000px;
+	height: 250px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.daohang-two-two img {
+	width: 235px;
+	height: 115px;
+	margin: 5px 7px;
+	float: left;
+}
+
+/**********************广告条***********************/
+
+.daohang-three {
+	width: 1500px;
+	position: absolute;
+	top: 660px;
+	left: 0px;
+}
+
+.daohang-three img {
+	width: 1500px
+}
+
+/*********************视频区********************/
+
+.shipin {
+	width: 1500px;
+	height: 1000px;
+	position: absolute;
+	top: 800px;
+	left: 0px;
+}
+
+/*******************************视频名和视频****************************/
+
+.shipin-one {
+	background-color: rgba(255, 0, 4, 0.10);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.shipin-one p {
+	font-size: 20px;
+	color: white;
+	width: 400px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+
+}
+
+video {
+	/*视频播放内画面*/
+	width: 1110px;
+	/*100%意味着全屏模式下填满屏幕*/
+	height: 624px;
+	background-color: black;
+	position: absolute;
+	top: 110px;
+	left: 0px;
+}
+
+/********************视频推荐**********************/
+
+.tuijian-two {
+	width: 380px;
+	height: 900px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+/*******************************关注UP主、签名****************************/
+
+.guanzhu {
+	width: 380px;
+	height: 100px;
+	background-color: rgba(0, 0, 0, 0.20);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.guanzhu img {
+	width: 70px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.guanzhu a {
+	font-size: 25px;
+	color: red;
+	position: absolute;
+	top: 10px;
+	left: 80px;
+}
+
+.guanzhu b {
+	font-size: 10px;
+	color: rgba(166, 166, 166, 1.00);
+	position: absolute;
+	top: 45px;
+	left: 80px;
+}
+
+.guanzhu c {
+	font-size: 15px;
+	color: white;
+	background-color: rgba(0, 195, 255, 1.00);
+	position: absolute;
+	padding: 10px 20px;
+	top: 20px;
+	left: 280px;
+}
+
+/*******************************右边视频推荐图***************************/
+
+.shipintuijian {
+	width: 380px;
+	height: 1615px;
+	background-color: rgba(0, 0, 0, 0.20);
+	position: absolute;
+	top: 110px;
+	left: 0;
+}
+
+.shipintuijian a {
+	width: 380px;
+	font-size: 30px;
+	color: white;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.20);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.tuijianimg {
+	position: absolute;
+	top: 40px;
+}
+
+.tuijianimg img {
+	width: 380px;
+	margin: 2.5px 0;
+	float: left;
+}
+
+/***********************评论区*************************/
+
+.pinglun {
+	width: 1110px;
+	height: 997px;
+	background-color: rgba(0, 0, 0, 0.20);
+	position: absolute;
+	top: 730px;
+	left: 0px;
+}

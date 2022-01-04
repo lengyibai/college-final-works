@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>注册登录</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+
+        .father {
+            position: relative;
+            height: 100vh;
+            color: #fff;
+            left: 1550px;
+            background: linear-gradient(135deg, red, red, orange, yellow, green, cyan, blue, purple, purple);
+            background-size: 2000% 2000%;
+            transform: rotate(0deg) skew(0deg) scale(.5);
+            animation: bg 20s linear infinite;
+            overflow: hidden;
+            text-align: center;
+            transition: all 0.5s;
+            opacity: 0;
+            perspective: 1800px;
+            transform-style: perspective-3d;
+        }
+
+        @keyframes bg {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .card {
+            position: relative;
+            left: 50%;
+            margin-left: -200px;
+            top: 5px;
+        }
+
+        .ab {
+            position: absolute;
+            width: 400px;
+            transition: 0.8s ease;
+            backface-visibility: hidden;
+        }
+
+        /* .card:hover .a {
+            transform: rotateY(-180deg);
+        }
+
+        .card:hover .b {
+            transform: rotateY(0deg);
+        } */
+
+        .b {
+            transform: rotateY(180deg);
+            top: 50px;
+        }
+
+        .box2 h1 {
+            position: relative;
+            text-align: center;
+            bottom: 35px;
+            -webkit-box-reflect: below 0px linear-gradient(transparent, rgba(0, 0, 0, .08));
+        }
+
+        .h2 {
+            position: relative;
+            height: 50px;
+            font-family: '微软雅黑';
+        }
+
+        .h2 h2 {
+            display: none;
+            opacity: 0;
+            font-size: 50px;
+            line-height: 50px;
+            animation: abc 2s;
+        }
+
+        /*************盒子橡皮筋特效***************/
+
+        @keyframes abc {
+            0% {
+                display: block;
+                opacity: 1;
+                transform: scale3d(1, 1, 1);
+            }
+
+            7% {
+                transform: scale3d(1, 25, 75, 1);
+            }
+
+            9% {
+                transform: scale3d(.75, 1, 1);
+            }
+
+            12% {
+                transform: scale3d(1, 2, .8, 1);
+            }
+
+            15% {
+                transform: scale3d(1.25, .95, 1);
+            }
+
+            20% {
+                transform: scale3d(1, 1, 1);
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                display: none;
+                opacity: 0;
+            }
+        }
+
+        .box1,
+        .box2 {
+            position: relative;
+            font-family: "微软雅黑";
+            color: #fff;
+            padding: 20px 50px;
+            background-color: rgba(0, 0, 0, .4);
+            box-shadow: 0 5px 20px 0 black;
+            border-radius: 35px;
+            transition: 0.5s;
+        }
+
+        .box2 {
+            padding: 0px 50px;
+        }
+
+        .header {
+            position: relative;
+            text-align: center;
+        }
+
+        .header img {
+            width: 100px;
+            border-radius: 50%;
+            -webkit-box-reflect: below 0px linear-gradient(transparent, rgba(0, 0, 0, .05));
+            box-shadow: 0 3px 5px 0 rgba(50, 50, 50, .5);
+            transition: all 1s;
+        }
+
+        .box2 .header {
+            top: -50px;
+        }
+
+        input {
+            display: block;
+            font-family: "微软雅黑";
+            border: none;
+            border-bottom: 2px solid white;
+            background-color: transparent;
+            width: 300px;
+            height: 50px;
+            text-align: left;
+            font-size: 20px;
+            outline: none;
+            color: white;
+            margin: 20px auto;
+            transition: 0.5s;
+        }
+
+        input:hover {
+            text-shadow: 0 0 10px white;
+        }
+
+        .box2 .input {
+            position: relative;
+            bottom: 35px;
+        }
+
+        .btn {
+            width: 250px;
+            border: 2px solid white;
+            text-align: center;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        .box1 input[type=button] {
+            margin-top: 40px;
+        }
+
+        .btn {
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .box2 input[type=button] {
+            margin-top: 0px;
+        }
+
+        .box2 input[type=password] {
+            margin-bottom: 40px;
+        }
+
+        p {
+            position: absolute;
+            margin-top: 15px;
+            font-size: 20px;
+            transition: 0.5s;
+        }
+
+        /***************进度条*****************/
+
+        .load {
+            display: none;
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 100vh;
+            z-index: 1;
+            float: left;
+            opacity: 0;
+            transition: opacity 3s ease;
+        }
+
+        .load-font {
+            position: absolute;
+            display: none;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.75);
+            opacity: 0;
+            transition: all 2s ease;
+            z-index: 1;
+        }
+
+        .load-top {
+            position: relative;
+            font-size: 35px;
+            transition: opacity 3s ease;
+            margin-top: -175px;
+            top: 50%;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .load-bottom {
+            position: relative;
+            font-size: 40px;
+            transition: opacity 3s ease;
+            margin-top: 225px;
+            top: 50%;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        ul {
+            display: flex;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        ul li {
+            list-style: none;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: animate 1s ease-in infinite;
+        }
+
+        @keyframes animate {
+
+            0%,
+            40%,
+            100% {
+                transform: scale(0.2);
+            }
+
+            20% {
+                transform: scale(1);
+            }
+        }
+
+        ul li:nth-child(1) {
+            animation-delay: -0.8s;
+            background-color: #ffff00;
+            box-shadow: 0 0 50px #ffff00;
+        }
+
+        ul li:nth-child(2) {
+            animation-delay: -0.7s;
+            background-color: #76ff03;
+            box-shadow: 0 0 50px #76ff03;
+        }
+
+        ul li:nth-child(3) {
+            animation-delay: -0.6s;
+            background-color: #f06292;
+            box-shadow: 0 0 50px #f06292;
+        }
+
+        ul li:nth-child(4) {
+            animation-delay: -0.5s;
+            background-color: #4fc3f7;
+            box-shadow: 0 0 50px #4fc3f7;
+        }
+
+        ul li:nth-child(5) {
+            animation-delay: -0.4s;
+            background-color: #ba68c8;
+            box-shadow: 0 0 50px #ba68c8;
+        }
+
+        ul li:nth-child(6) {
+            animation-delay: -0.3s;
+            background-color: #f57c00;
+            box-shadow: 0 0 50px #f57c00;
+        }
+
+        ul li:nth-child(7) {
+            animation-delay: -0.2s;
+            background-color: #673ab7;
+            box-shadow: 0 0 50px #673ab7;
+        }
+
+        .black {
+            position: fixed;
+            width: 200px;
+            height: 50px;
+            color: black;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            border: 2px solid black;
+            font-weight: bold;
+            font-family: "方正兰亭超细黑简体";
+            animation: glow 8s linear infinite;
+            cursor: pointer;
+            transition: 0.5s;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        @keyframes glow {
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 400%;
+            }
+        }
+
+        /* .back {
+            position: fixed;
+            width: 200px;
+            height: 50px;
+            border: 2px solid white;
+            bottom: 0;
+            right: 0;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: "方正兰亭超细黑简体";
+            transition: 0.5s;
+        }
+
+        .back:hover {
+            background-color: white;
+            color: black;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="black">酷黑模式</div>
+        <!-- <div class="back">主页入口</div> -->
+        <div class="load-font">
+            <div class="load-top">
+                <h3>亲爱的用户欢迎您的登录</h3>
+            </div>
+            <div class="load-bottom">
+                <h4>正在进入我的JavaScript期末综合考核作品</h4>
+            </div>
+        </div>
+        <div class="load">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="h2">
+            <h2></h2>
+        </div>
+        <div class="card">
+            <div class="ab a">
+                <div class="box1">
+                    <div class="header">
+                        <img src="images/user.jpg" alt="">
+                    </div>
+                    <div class="input">
+                        <p>用户名：</p>
+                        <input type="text" name="" maxlength="6" value="">
+                        <p>帐号：</p>
+                        <input type="text" maxlength="11" value="" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " onafterpaste="this.value=this.value.replace(/[^\d]/g,'') " name="">
+                        <p>密码：</p>
+                        <input type="password" name="" maxlength="16" value="" onkeyup="this.value=this.value.replace(/[^\w]/g,'')" onpaste="this.value=this.value.replace(/[^\w]/g,'')">
+                        <p>确认密码：</p>
+                        <input type="password" name="" maxlength="16" onkeyup="this.value=this.value.replace(/[^\w]/g,'')" onpaste="this.value=this.value.replace(/[^\w]/g,'')">
+                        <input type="button" name="" class="btn" value="点击验证">
+                        <input type="submit" name="" class="btn" value="注册">
+                    </div>
+                </div>
+            </div>
+            <!--*********************************-->
+            <div class="ab b">
+                <div class="box2">
+                    <div class="header">
+                        <img src="images/user.jpg" alt="">
+                    </div>
+                    <h1>用户名</h1>
+                    <div class="input">
+                        <p>帐号：</p>
+                        <input type="text" maxlength="11" value="" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " onafterpaste="this.value=this.value.replace(/[^\d]/g,'') " name="">
+                        <p>密码：</p>
+                        <input type="password" name="" maxlength="16" onkeyup="this.value=this.value.replace(/[^\w]/g,'')" onpaste="this.value=this.value.replace(/[^\w]/g,'')">
+                        <input type="button" name="" class="btn" value="返回修改注册信息">
+                        <input type="button" name="" class="btn" value="点击验证">
+                        <input type="submit" name="" class="btn" value="登录">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var input = document.querySelectorAll('input');
+    var box1 = document.querySelector('.box1');
+    var box2 = document.querySelector('.box2');
+    var input1 = box1.querySelectorAll('input');
+    var input2 = box2.querySelectorAll('input');
+    var p1 = box1.querySelectorAll('p');
+    var p2 = box2.querySelectorAll('p');
+    var a = document.querySelector('.a');
+    var b = document.querySelector('.b');
+    var h1 = document.querySelector('h1');
+    var h2 = document.querySelector('h2');
+    var h3 = document.querySelector('h3');
+    var header2 = document.querySelector('.box2').querySelector('.header').querySelector('img');
+    var load = document.querySelector('.load');
+    var loadTop = document.querySelector('.load-top');
+    var loadBottom = document.querySelector('.load-bottom');
+    var father = document.querySelector('.father');
+    var loadFont = document.querySelector('.load-font');
+    var black = document.querySelector('.black');
+    // var back = document.querySelector('.back');
+    setTimeout(
+        function () {
+            father.style.opacity = '1';
+            father.style.left = '0px';
+        }, 0);
+    setTimeout(
+        function () {
+            father.style.opacity = '1';
+            father.style.transform = 'rotate(0deg) skew(0deg) scale(1)';
+        }, 250);
+
+
+    /**************过渡动画***************/
+    input1[0].onfocus = function () {
+        p1[0].style.marginTop = '-10px';
+        p1[0].style.fontSize = '15px';
+    }
+    input1[1].onfocus = function () {
+        p1[1].style.marginTop = '-10px';
+        p1[1].style.fontSize = '15px';
+    }
+    input1[2].onfocus = function () {
+        p1[2].style.marginTop = '-10px';
+        p1[2].style.fontSize = '15px';
+    }
+    input1[3].onfocus = function () {
+        p1[3].style.marginTop = '-10px';
+        p1[3].style.fontSize = '15px';
+    }
+    input2[0].onfocus = function () {
+        p2[0].style.marginTop = '-10px';
+        p2[0].style.fontSize = '15px';
+        h2.style.display = 'none';
+        h2.style.opacity = '0';
+    }
+    input2[1].onfocus = function () {
+        p2[1].style.marginTop = '-10px';
+        p2[1].style.fontSize = '15px';
+    }
+
+    /**********开始进行验证操作***********/
+    input1[0].onblur = function () {
+        if (this.value == '' || this.value.length < 2) {
+            p1[0].innerHTML = '您还未输入或低于2位数';
+            p1[0].style.color = 'red';
+            this.style.borderBottomColor = 'red';
+            input1[5].style.color = 'red';
+            input1[5].style.backgroundColor = 'transparent';
+            input1[5].style.borderColor = 'red';
+        } else {
+            p1[0].innerHTML = '用户名：';
+            p1[0].style.color = '';
+            this.style.borderBottomColor = '';
+            p1[0].style.color = '';
+            h3.innerHTML = '亲爱的' + this.value + '，欢迎注册登录我的网页';
+        }
+    }
+    input1[1].onblur = function () {
+        if (this.value == '' || this.value.length < 10) {
+            p1[1].innerHTML = '您还未输入或低于10位数';
+            p1[1].style.color = 'red';
+            this.style.borderBottomColor = 'red';;
+            input1[5].style.color = 'red';
+            input1[5].style.backgroundColor = 'transparent';
+            input1[5].style.borderColor = 'red';
+        } else {
+            p1[1].innerHTML = '帐号：';
+            p1[1].style.color = '';
+            this.style.borderBottomColor = '';
+            p1[1].style.color = '';
+        }
+    }
+    //BY神田新一
+    input1[2].onblur = function () {
+        if (this.value == '' || this.value.length < 6) {
+            p1[2].innerHTML = '您还未输入或低于6位数';
+            p1[2].style.color = 'red';
+            this.style.borderBottomColor = 'red';
+            input1[5].style.color = 'red';
+            input1[5].style.backgroundColor = 'transparent';
+            input1[5].style.borderColor = 'red';
+        } else {
+            p1[2].innerHTML = '密码：';
+            p1[2].style.color = '';
+            this.style.borderBottomColor = '';
+            p1[2].style.color = '';
+            p1[3].innerHTML = '确认密码：';
+            p1[3].style.color = '';
+            input1[3].style.borderBottomColor = '';
+        }
+    }
+    input1[3].onblur = function () {
+        if (this.value == '' || this.value != input1[2].value) {
+            p1[3].innerHTML = '您还未输入或两次密码不一致';
+            p1[3].style.color = 'red';
+            this.style.borderBottomColor = 'red';
+            input1[5].style.color = 'red';
+            input1[5].style.backgroundColor = 'transparent';
+            input1[5].style.borderColor = 'red';
+        } else {
+            p1[2].innerHTML = '密码：';
+            p1[2].style.color = '';
+            input1[2].style.borderBottomColor = '';
+            p1[2].style.color = '';
+            p1[3].innerHTML = '确认密码：';
+            p1[3].style.color = '';
+            this.style.borderBottomColor = '';
+            p1[3].style.color = '';
+        }
+    }
+    input1[4].onclick = function () {
+        if (input1[0].value == '' || input1[0].value.length < 2 || input1[1].value == '' || input1[1].value.length < 10 || input1[2].value == '' || input1[2].value.length < 6 || input1[3].value == '' || input1[3].value != input1[2].value) {
+            this.value = '验证不通过，请修改再试';
+            this.style.borderColor = 'red';
+            this.style.backgroundColor = 'red';
+            input1[5].value = '注册';
+            input1[5].style.color = 'red';
+            input1[5].style.borderColor = 'red';
+            input1[5].style.backgroundColor = 'transparent';
+            if (input1[2].value != input1[3].value) {
+                p1[2].innerHTML = '两次密码不一致';
+                p1[2].style.color = 'red';
+            }
+        } else {
+            this.value = '验证通过';
+            this.style.borderColor = 'green';
+            this.style.color = 'white';
+            this.style.backgroundColor = 'green';
+            input1[5].value = '注册';
+            input1[5].disabled = '';
+            input1[5].style.color = '';
+            input1[5].style.borderColor = '';
+            input1[5].style.backgroundColor = '';
+        }
+    }
+    input1[4].onmousemove = function () {
+        if (this.value == '验证不通过，请修改再试') {
+            this.style.borderColor = 'red';
+            this.style.backgroundColor = 'red';
+            this.style.color = 'white';
+        }
+    }
+    input1[4].onmouseout = function () {
+        if (this.value == '验证不通过，请修改再试') {
+            this.style.backgroundColor = 'transparent';
+            this.style.color = 'red';
+            this.style.borderColor = 'red';
+        }
+    }
+    input1[5].onclick = function () {
+        if (input1[4].value == '验证通过' && input1[0].value != '' && input1[0].value.length >= 2 && input1[1].value != '' && input1[1].value.length >= 10 && input1[2].value != '' && input1[2].value.length >= 6 && input1[3].value != '' && input1[3].value == input1[2].value) {
+            a.style.transform = 'rotateY(-180deg)';
+            b.style.transform = 'rotateY(0deg)';
+            h2.style.display = 'block';
+            h2.innerHTML = '注册成功';
+            if (black.innerHTML == '炫彩模式') {} else {
+                father.style.background = 'linear-gradient(45deg,#EA2027,#EA2027, #F79F1F, #C4E538, #009432, #12CBC4, #0652DD, #D980FA, #9980FA, #ED4C67)';
+                father.style.backgroundSize = '1500% 1500%';
+            }
+        } else {
+            this.disabled = 'disabled';
+            this.style.color = 'red';
+            this.style.borderColor = 'red';
+            this.style.backgroundColor = 'transparent';
+            if (input1[2].value != input1[3].value) {
+                p1[3].innerHTML = '您还未输入或两次密码不一致';
+                p1[3].style.color = 'red';
+                input1[3].style.borderBottomColor = 'red';
+            }
+            if (input1[2].value != input1[3].value) {
+                this.value = '改了信息还想注册？';
+                this.style.borderColor = 'red';
+                this.style.backgroundColor = 'red';
+                this.style.backgroundColor = 'transparent';
+                input1[4].style.borderColor = 'red';
+                input1[4].style.backgroundColor = 'red';
+                input1[4].style.color = 'white';
+                input1[4].value = '点我检查错误纠正后再验证';
+            } else {
+                this.value = '请验证后再点击';
+            }
+        }
+    }
+
+    /*********登录页面************/
+
+    /**********返回修改注册信息********/
+
+    input2[2].onclick = function () {
+        a.style.transform = 'rotateY(0deg)';
+        b.style.transform = 'rotateY(180deg)';
+        if (black.innerHTML == '炫彩模式') {} else {
+            father.style.background = 'linear-gradient(-45deg,#EA2027,#EA2027, #F79F1F, #C4E538, #009432, #12CBC4, #0652DD, #D980FA, #9980FA, #ED4C67)';
+            father.style.backgroundSize = '1500% 1500%';
+        }
+        h2.style.display = 'none';
+    }
+    input2[0].onblur = function () {
+        if (input2[0].value != input1[1].value || input2[0].value == '') {
+            p2[0].innerHTML = '帐号未注册或还未输入或低于10位数';
+            p2[0].style.color = 'red';
+            this.style.borderColor = 'red';
+            input2[4].style.borderColor = 'red';
+            input2[4].style.color = 'red';
+            input2[4].style.backgroundColor = 'transparent';
+            header2.src = 'images/user.jpg';
+            h1.innerHTML = '用户名';
+        } else {
+            p2[0].innerHTML = '帐号:';
+            p2[0].style.color = '';
+            this.style.borderColor = '';
+            header2.src = 'https://z3.ax1x.com/2021/05/30/2EDUMt.jpg';
+            h1.innerHTML = input1[0].value;
+            h2.innerHTML = '你好呀,' + h1.innerHTML;
+            h2.style.display = 'block';
+        }
+    }
+    input2[1].onblur = function () {
+        if (input2[1].value != input1[2].value || input2[1].value == '') {
+            p2[1].innerHTML = '密码错误或还未输入';
+            p2[1].style.color = 'red';
+            this.style.borderColor = 'red';
+            input2[4].style.borderColor = 'red';
+            input2[4].style.color = 'red';
+            input2[4].style.backgroundColor = 'transparent';
+        } else {
+            p2[1].innerHTML = '密码:';
+            p2[1].style.color = '';
+            this.style.borderColor = '';
+            h2.style.display = 'none';
+        }
+    }
+    input2[3].onclick = function () {
+        if (input2[0].value == input1[1].value && input2[0].value != '' && input2[1].value == input1[2].value && input2[1].value != '') {
+            this.value = '验证通过';
+            this.style.borderColor = 'green';
+            this.style.color = 'white';
+            this.style.backgroundColor = 'green';
+            input2[4].value = '登录';
+            input2[4].disabled = '';
+            input2[4].style.color = '';
+            input2[4].style.borderColor = '';
+            input2[4].style.backgroundColor = '';
+        } else {
+            this.value = '验证不通过，请修改再试';
+            this.style.borderColor = 'red';
+            this.style.color = 'white';
+            this.style.backgroundColor = 'red';
+            input2[4].value = '登录';
+            input2[4].disabled = 'disabled';
+            input2[4].style.color = 'red';
+            input2[4].style.borderColor = 'red';
+            input2[4].style.backgroundColor = 'transparent';
+            if (input2[0].value != input1[1].value || input2[0].value == '') {
+                p2[0].innerHTML = '帐号未注册或还未输入或低于10位数';
+                p2[0].style.color = 'red';
+                input2[0].style.borderColor = 'red';
+                input2[4].style.borderColor = 'red';
+                input2[4].style.color = 'red';
+                input2[4].style.backgroundColor = 'transparent';
+                header2.src = 'images/user.jpg';
+                h1.innerHTML = '用户名';
+            } else {
+                p2[0].innerHTML = '帐号:';
+                p2[0].style.color = '';
+                input2[0].style.borderColor = '';
+                header2.src = 'https://z3.ax1x.com/2021/05/30/2EDUMt.jpg';
+                h1.innerHTML = input1[0].value;
+                h2.innerHTML = '你好呀,' + h1.innerHTML;
+                h2.style.display = 'block';
+            }
+            if (input2[1].value != input1[2].value || input2[1].value == '') {
+                p2[1].innerHTML = '密码错误或还未输入';
+                p2[1].style.color = 'red';
+                input2[1].style.borderColor = 'red';
+                input2[4].style.borderColor = 'red';
+                input2[4].style.color = 'red';
+                input2[4].style.backgroundColor = 'transparent';
+            } else {
+                p2[1].innerHTML = '密码:';
+                p2[1].style.color = '';
+                input2[1].style.borderColor = '';
+                h2.style.display = 'none';
+            }
+        }
+    }
+    input2[4].onclick = function () {
+        if (input2[0].value != input1[1].value || input2[0].value == '' || input2[1].value != input1[2].value || input2[1].value == '') {
+            input2[4].value = '改了信息还想登录？';
+            input2[3].value = '点我检查错误纠正后再验证';
+            input2[3].style.borderColor = 'red';
+            input2[3].style.backgroundColor = 'red';
+            input2[4].disabled = 'disabled';
+            input2[4].style.color = 'red';
+            input2[4].style.borderColor = 'red';
+            input2[4].style.backgroundColor = 'transparent';
+
+        } else {
+            h2.style.display = 'none';
+            h2.innerHTML = '登录成功';
+            h2.style.display = 'block';
+            h2.style.display = '1';
+            load.style.display = 'block';
+            loadFont.style.display = 'block';
+            input1[0].value = '';
+            input1[1].value = '';
+            input1[2].value = '';
+            input1[3].value = '';
+            input2[0].value = '';
+            input1[1].value = '';
+            setTimeout(function () {
+                loadFont.style.opacity = '1';
+            }, 500);
+            setTimeout(function () {
+                loadTop.style.opacity = '1';
+            }, 1500);
+            setTimeout(
+                function () {
+                    loadBottom.style.opacity = '1';
+                }, 3500);
+            setTimeout(
+                function () {
+                    load.style.opacity = '1';
+                }, 6000);
+            setTimeout(
+                function () {
+                    father.style.transform = 'rotate(0deg) skew(0deg) scale(.5)';
+                }, 10000);
+            setTimeout(
+                function () {
+                    father.style.left = '-1550px';
+                }, 10250);
+            setTimeout(
+                function () {
+                    window.location.replace("主页/主页.html");
+                }, 10450);
+        }
+    }
+    var num = false;
+    black.onclick = function () {
+        if (num == false) {
+            father.style.background = 'black';
+            this.style.color = 'white';
+            this.style.background = 'linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4)';
+            this.style.backgroundSize = '400%';
+            this.style.borderColor = 'white';
+            this.innerHTML = '炫彩模式';
+            box1.style.border = '2px solid white';
+            box2.style.border = '2px solid white';
+            num = true;
+        } else {
+            father.style.background = '';
+            this.style.background = '';
+            this.style.background = 'black';
+            this.style.backgroundSize = '';
+            this.style.color = 'white';
+            this.style.borderColor = 'black';
+            box1.style.border = '';
+            box2.style.border = '';
+            this.innerHTML = '酷黑模式';
+            num = false;
+        }
+    }
+    black.onmouseover = function () {
+        this.style.color = 'white';
+        this.style.backgroundColor = 'black';
+    }
+    black.onmouseout = function () {
+        if (num == false) {
+            this.style.background = '';
+            this.style.background = '';
+            this.style.backgroundSize = '';
+            this.style.color = 'black';
+        }
+    }
+    /*
+        back.onclick = function () {
+            setTimeout(
+                function () {
+                    father.style.transform = 'rotate(0deg) skew(0deg) scale(.5)';
+                }, 0);
+            setTimeout(
+                function () {
+                    father.style.opacity = '0';
+                    father.style.left = '-1500px';
+                }, 250);
+            setTimeout(
+                function () {
+                    window.location.replace("主页/主页.html");
+                    load.style.display = 'none';
+                    father.style.transform = '';
+                }, 500);
+        } */
+</script>
+
+</html>
