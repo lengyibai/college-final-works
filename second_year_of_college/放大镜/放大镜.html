@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
-	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>放大镜</title>
 	<style>
 		* {
 			padding: 0 0;
@@ -318,21 +319,21 @@
 		image.style.height = a + 'px';
 		kuang.style.width = (image.offsetWidth / 4) + 'px';
 		kuang.style.height = (image.offsetWidth / 4) + 'px';
-		if (a == '') {} else {
+		if (a == '') { } else {
 			size.placeholder = '当前为' + a;
 			size.value = '';
 		}
 		var b = mul.value;
 		kuang.style.width = (image.offsetWidth / b) + 'px';
 		kuang.style.height = (image.offsetWidth / b) + 'px';
-		if (b == '') {} else {
+		if (b == '') { } else {
 			mul.placeholder = '当前为' + b + '倍';
 			mul.value = '';
 		}
 		var c = cla.value;
 		show.style.width = c + 'px';
 		show.style.height = c + 'px';
-		if (c == '') {} else {
+		if (c == '') { } else {
 			cla.placeholder = '当前为' + c;
 			cla.value = '';
 		}
